@@ -21,7 +21,7 @@ options {
 }
 
 /*------------------------------------------------------------------
- * PARSER RULES This is my way of huge change. REALLY AAAHUUUUGEEEEAAA
+ * PARSER RULES HI
  *------------------------------------------------------------------*/
 
 program
