@@ -2,11 +2,11 @@ package com.compilers.AST;
 
 import java.util.*;
 
-public class argumentsNode extends ASTNode 
+public class ArgumentsNode extends ASTNode 
 {
-	public Hashtable<typeNode, TokenNode> _ARGUMENTS = new Hashtable<typeNode, TokenNode>();
-	public TokenNode _VOID = new TokenNode();
+	public Hashtable<TypeNode, TokenNode> _ARGUMENTS = new Hashtable<TypeNode, TokenNode>();
+	public TokenNode _VOID;
 	
-	public argumentsNode(){}
+	public ArgumentsNode(){}
 	
 }

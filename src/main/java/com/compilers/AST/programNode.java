@@ -2,21 +2,28 @@ package com.compilers.AST;
 
 import java.util.ArrayList;
 
-public class programNode extends ASTNode 
+public class ProgramNode extends ASTNode 
 {
-	public ArrayList<includeNode> _includes = new ArrayList<includeNode>();
-	public ArrayList<functionNode> _functions = new ArrayList<functionNode>();
-	public ArrayList<signatureNode> _signatures = new ArrayList<signatureNode>();
-	public ArrayList<declarationNode> _declarations = new ArrayList<declarationNode>();
-	public mainNode _main = new mainNode();
+	private ArrayList<TokenNode> _includes = new ArrayList<TokenNode>();
+	public ArrayList<TokenNode> get_includes() {
+		return _includes;
+	}
+	public ArrayList<FunctionNode> _functions = new ArrayList<FunctionNode>();
+	public ArrayList<SignatureNode> _signatures = new ArrayList<SignatureNode>();
+	public ArrayList<DeclarationNode> _declarations = new ArrayList<DeclarationNode>();
+	public MainNode _main;
 	
-	public programNode(){}
+	public ProgramNode(String Name)
+	{
+		super.set_Name(Name);
+	}
 	
-	public programNode(ArrayList<functionNode> _functions, ArrayList<signatureNode> _signatures, ArrayList<declarationNode> _declarations, mainNode _main)
+	public ProgramNode(ArrayList<FunctionNode> _functions, ArrayList<SignatureNode> _signatures, ArrayList<DeclarationNode> _declarations, MainNode _main)
 	{
 		this._functions = _functions;
 		this._declarations = _declarations;
 		this._signatures = _signatures;
 		this._main = _main;
 	}
+
 }

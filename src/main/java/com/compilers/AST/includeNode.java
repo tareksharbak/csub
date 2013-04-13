@@ -1,9 +1,11 @@
 package com.compilers.AST;
 
-public class includeNode extends ASTNode
+public class IncludeNode extends ASTNode
 {
-	public TokenNode _INCLUDESTART = new TokenNode();
-	public TokenNode _INCLUDE = new TokenNode();
+	public TokenNode _INCLUDE;
 	
-	public includeNode(String text){}
+	public IncludeNode(TokenNode _INCLUDE)
+	{
+		this._INCLUDE = _INCLUDE;
+	}
 }

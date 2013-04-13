@@ -1,14 +1,14 @@
 package com.compilers.AST;
 
-public class signatureNode extends ASTNode
+public class SignatureNode extends ASTNode
 {
-	public typeNode _type = new typeNode();
-	public signatureArgumentsNode _signatureArguments = new signatureArgumentsNode();
-	public TokenNode _VOID = new TokenNode();
-	public TokenNode _IDENT = new TokenNode();
-	public TokenNode _OPENPARENT = new TokenNode();
-	public TokenNode _CLOSEPARENT = new TokenNode();
-	public TokenNode _SEMICOLON = new TokenNode();
+	public TypeNode _type;
+	public SignatureArgumentsNode _signatureArguments;
+	public TokenNode _VOID;
+	public TokenNode _IDENT;
+	public TokenNode _OPENPARENT;
+	public TokenNode _CLOSEPARENT;
+	public TokenNode _SEMICOLON;
 	
-	public signatureNode(){}
+	public SignatureNode(){}
 }

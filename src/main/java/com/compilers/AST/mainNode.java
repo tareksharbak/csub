@@ -1,14 +1,14 @@
 package com.compilers.AST;
 
-public class mainNode extends ASTNode
+public class MainNode extends ASTNode
 {
-	public typeNode _type = new typeNode();
-	public argumentsNode _arguments = new argumentsNode();
-	public functionBodyNode _functionBody = new functionBodyNode();
-	public TokenNode _VOID = new TokenNode();
-	public TokenNode _MAIN = new TokenNode();
-	public TokenNode _OPENPARENT = new TokenNode();
-	public TokenNode _CLOSEPARENT = new TokenNode();
+	public TypeNode _type;
+	public ArgumentsNode _arguments;
+	public FunctionBodyNode _functionBody;
+	public TokenNode _VOID;
+	public TokenNode _MAIN;
+	public TokenNode _OPENPARENT;
+	public TokenNode _CLOSEPARENT;
 	
-	public mainNode(){}
+	public MainNode(){}
 }

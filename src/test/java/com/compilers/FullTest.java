@@ -15,7 +15,7 @@ import com.compilers.parsers.CsubParser;
 public class FullTest {
 
 	@Test
-	public void testHelloWorld() throws Exception {
+	public void testHelloWorlds() throws Exception {
 		parseFile("helloWorld");
 	}
 	

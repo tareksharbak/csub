@@ -18,6 +18,7 @@ options {
 @members {
     /** Map variable name to Integer object holding value */
     HashMap symbolTable = new HashMap();
+    AST ast = new AST();
 }
 
 /*------------------------------------------------------------------
@@ -26,7 +27,9 @@ options {
 
 program
     :
-        includes 
+        {ProgramNode programNode = new ProgramNode("programNode");
+        ast.set_root(programNode);}
+        includes[ast.get_root()] {System.out.println(ast.get_root().get_includes().get(0).get_Value());}
         (   signature
         |   function 
         |   declaration // Global variable declaration
@@ -39,15 +42,16 @@ program
  * DEPTH 1
  *------------------------------------------------------------------*/
      
-includes
+includes [ASTNode parent] returns [int a]
     :
-        (INCLUDESTART result+=INCLUDE)* 
+        (INCLUDESTART result+=INCLUDE)*
         {
-            for (Object token : $result) 
+            for (Object token : $result)
             {
-                String includeString = ((Token)token).getText(); // The token can also be given as argument if needed
-                new includeNode(includeString);
-                System.out.println("Created includeNode with argument: "+includeString);
+                TokenNode node = new TokenNode("INCLUDE", ((Token)token).getText());
+                node.set_parent(parent);
+                ast.get_root().get_includes().add(node);
+                parent.get_children().add(node);
             }
         }
     ;

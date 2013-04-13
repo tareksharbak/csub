@@ -2,13 +2,13 @@ package com.compilers.AST;
 
 import java.util.*;
 
-public class declarationNode extends ASTNode
+public class DeclarationNode extends ASTNode
 {
-	public TokenNode _CONST = new TokenNode();
-	public Hashtable<TokenNode, expressionNode> _IDENT = new Hashtable<TokenNode, expressionNode>();
-	public Hashtable<TokenNode, expressionNode> _POINTER = new Hashtable<TokenNode, expressionNode>();
-	public TokenNode _SEMICOLON = new TokenNode();
-//	public arrayDeclarationNode _arrayDeclaration = new arrayDeclarationNode();
+	public TokenNode _CONST;
+	public Hashtable<TokenNode, ExpressionNode> _IDENT = new Hashtable<TokenNode, ExpressionNode>();
+	public Hashtable<TokenNode, ExpressionNode> _POINTER = new Hashtable<TokenNode, ExpressionNode>();
+	public TokenNode _SEMICOLON;
+//	public arrayDeclarationNode _arrayDeclaration;
 	
-	public declarationNode(){}
+	public DeclarationNode(){}
 }

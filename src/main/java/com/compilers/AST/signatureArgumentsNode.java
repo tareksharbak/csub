@@ -2,10 +2,10 @@ package com.compilers.AST;
 
 import java.util.ArrayList;
 
-public class signatureArgumentsNode extends ASTNode 
+public class SignatureArgumentsNode extends ASTNode 
 {
-	public ArrayList<typeNode> _TYPES = new ArrayList<typeNode>();
-	public TokenNode _VOID = new TokenNode();
+	public ArrayList<TypeNode> _TYPES = new ArrayList<TypeNode>();
+	public TokenNode _VOID;
 	
-	public signatureArgumentsNode(){}
+	public SignatureArgumentsNode(){}
 }

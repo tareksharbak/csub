@@ -1,6 +1,6 @@
 package com.compilers.AST;
 
-public class expressionNode extends ASTNode
+public class ExpressionNode extends ASTNode
 {
 	
 }
