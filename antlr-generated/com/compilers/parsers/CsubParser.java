@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g 2013-04-14 01:26:47
+// $ANTLR 3.4 C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g 2013-04-14 01:33:58
 
     package com.compilers.parsers;
     import java.util.HashMap;
@@ -95,23 +95,29 @@ public class CsubParser extends Parser {
 
         /** Map variable name to Integer object holding value */
         HashMap symbolTable = new HashMap();
+        AST ast = new AST();
 
 
 
     // $ANTLR start "program"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:27:1: program : includes ( signature | function | declaration )* main ( declaration | function )* ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:28:1: program : includes[ast.get_root()] ( signature | function | declaration )* main ( declaration | function )* ;
     public final void program() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:28:5: ( includes ( signature | function | declaration )* main ( declaration | function )* )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:29:9: includes ( signature | function | declaration )* main ( declaration | function )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:29:5: ( includes[ast.get_root()] ( signature | function | declaration )* main ( declaration | function )* )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:30:9: includes[ast.get_root()] ( signature | function | declaration )* main ( declaration | function )*
             {
-            pushFollow(FOLLOW_includes_in_program64);
-            includes();
+            if ( state.backtracking==0 ) {ProgramNode programNode = new ProgramNode("programNode");
+                    ast.set_root(programNode);}
+
+            pushFollow(FOLLOW_includes_in_program74);
+            includes(ast.get_root());
 
             state._fsp--;
             if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:30:9: ( signature | function | declaration )*
+            if ( state.backtracking==0 ) {System.out.println(ast.get_root().get_includes().get(0).get_Value());}
+
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:33:9: ( signature | function | declaration )*
             loop1:
             do {
                 int alt1=4;
@@ -274,9 +280,9 @@ public class CsubParser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:30:13: signature
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:33:13: signature
             	    {
-            	    pushFollow(FOLLOW_signature_in_program79);
+            	    pushFollow(FOLLOW_signature_in_program91);
             	    signature();
 
             	    state._fsp--;
@@ -285,9 +291,9 @@ public class CsubParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:31:13: function
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:34:13: function
             	    {
-            	    pushFollow(FOLLOW_function_in_program93);
+            	    pushFollow(FOLLOW_function_in_program105);
             	    function();
 
             	    state._fsp--;
@@ -296,9 +302,9 @@ public class CsubParser extends Parser {
             	    }
             	    break;
             	case 3 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:32:13: declaration
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:35:13: declaration
             	    {
-            	    pushFollow(FOLLOW_declaration_in_program108);
+            	    pushFollow(FOLLOW_declaration_in_program120);
             	    declaration();
 
             	    state._fsp--;
@@ -313,13 +319,13 @@ public class CsubParser extends Parser {
             } while (true);
 
 
-            pushFollow(FOLLOW_main_in_program130);
+            pushFollow(FOLLOW_main_in_program142);
             main();
 
             state._fsp--;
             if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:35:9: ( declaration | function )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:38:9: ( declaration | function )*
             loop2:
             do {
                 int alt2=3;
@@ -364,9 +370,9 @@ public class CsubParser extends Parser {
 
                 switch (alt2) {
             	case 1 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:35:10: declaration
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:38:10: declaration
             	    {
-            	    pushFollow(FOLLOW_declaration_in_program141);
+            	    pushFollow(FOLLOW_declaration_in_program153);
             	    declaration();
 
             	    state._fsp--;
@@ -375,9 +381,9 @@ public class CsubParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:35:24: function
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:38:24: function
             	    {
-            	    pushFollow(FOLLOW_function_in_program145);
+            	    pushFollow(FOLLOW_function_in_program157);
             	    function();
 
             	    state._fsp--;
@@ -410,16 +416,19 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "includes"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:42:1: includes : ( INCLUDESTART result+= INCLUDE )* ;
-    public final void includes() throws RecognitionException {
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:45:1: includes[ASTNode parent] returns [int a] : ( INCLUDESTART result+= INCLUDE )* ;
+    public final int includes(ASTNode parent) throws RecognitionException {
+        int a = 0;
+
+
         Token result=null;
         List list_result=null;
 
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:43:5: ( ( INCLUDESTART result+= INCLUDE )* )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:44:9: ( INCLUDESTART result+= INCLUDE )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:46:5: ( ( INCLUDESTART result+= INCLUDE )* )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:47:9: ( INCLUDESTART result+= INCLUDE )*
             {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:44:9: ( INCLUDESTART result+= INCLUDE )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:47:9: ( INCLUDESTART result+= INCLUDE )*
             loop3:
             do {
                 int alt3=2;
@@ -432,11 +441,11 @@ public class CsubParser extends Parser {
 
                 switch (alt3) {
             	case 1 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:44:10: INCLUDESTART result+= INCLUDE
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:47:10: INCLUDESTART result+= INCLUDE
             	    {
-            	    match(input,INCLUDESTART,FOLLOW_INCLUDESTART_in_includes181); if (state.failed) return ;
+            	    match(input,INCLUDESTART,FOLLOW_INCLUDESTART_in_includes199); if (state.failed) return a;
 
-            	    result=(Token)match(input,INCLUDE,FOLLOW_INCLUDE_in_includes185); if (state.failed) return ;
+            	    result=(Token)match(input,INCLUDE,FOLLOW_INCLUDE_in_includes203); if (state.failed) return a;
             	    if (list_result==null) list_result=new ArrayList();
             	    list_result.add(result);
 
@@ -451,11 +460,12 @@ public class CsubParser extends Parser {
 
 
             if ( state.backtracking==0 ) {
-                        for (Object token : list_result) 
+                        for (Object token : list_result)
                         {
-                            String includeString = ((Token)token).getText(); // The token can also be given as argument if needed
-                            new includeNode(includeString);
-                            System.out.println("Created includeNode with argument: "+includeString);
+                            TokenNode node = new TokenNode("INCLUDE", ((Token)token).getText());
+                            node.set_parent(parent);
+                            ast.get_root().get_includes().add(node);
+                            parent.get_children().add(node);
                         }
                     }
 
@@ -470,20 +480,20 @@ public class CsubParser extends Parser {
         finally {
         	// do for sure before leaving
         }
-        return ;
+        return a;
     }
     // $ANTLR end "includes"
 
 
 
     // $ANTLR start "signature"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:55:1: signature : ( VOID | type ) IDENT OPENPARENT ( signatureArguments )? CLOSEPARENT SEMICOLON ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:59:1: signature : ( VOID | type ) IDENT OPENPARENT ( signatureArguments )? CLOSEPARENT SEMICOLON ;
     public final void signature() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:56:5: ( ( VOID | type ) IDENT OPENPARENT ( signatureArguments )? CLOSEPARENT SEMICOLON )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:57:9: ( VOID | type ) IDENT OPENPARENT ( signatureArguments )? CLOSEPARENT SEMICOLON
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:60:5: ( ( VOID | type ) IDENT OPENPARENT ( signatureArguments )? CLOSEPARENT SEMICOLON )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:61:9: ( VOID | type ) IDENT OPENPARENT ( signatureArguments )? CLOSEPARENT SEMICOLON
             {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:57:9: ( VOID | type )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:61:9: ( VOID | type )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -503,16 +513,16 @@ public class CsubParser extends Parser {
             }
             switch (alt4) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:57:10: VOID
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:61:10: VOID
                     {
-                    match(input,VOID,FOLLOW_VOID_in_signature235); if (state.failed) return ;
+                    match(input,VOID,FOLLOW_VOID_in_signature252); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:57:17: type
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:61:17: type
                     {
-                    pushFollow(FOLLOW_type_in_signature239);
+                    pushFollow(FOLLOW_type_in_signature256);
                     type();
 
                     state._fsp--;
@@ -524,11 +534,11 @@ public class CsubParser extends Parser {
             }
 
 
-            match(input,IDENT,FOLLOW_IDENT_in_signature243); if (state.failed) return ;
+            match(input,IDENT,FOLLOW_IDENT_in_signature260); if (state.failed) return ;
 
-            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_signature245); if (state.failed) return ;
+            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_signature262); if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:57:41: ( signatureArguments )?
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:61:41: ( signatureArguments )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -537,9 +547,9 @@ public class CsubParser extends Parser {
             }
             switch (alt5) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:57:41: signatureArguments
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:61:41: signatureArguments
                     {
-                    pushFollow(FOLLOW_signatureArguments_in_signature247);
+                    pushFollow(FOLLOW_signatureArguments_in_signature264);
                     signatureArguments();
 
                     state._fsp--;
@@ -551,9 +561,9 @@ public class CsubParser extends Parser {
             }
 
 
-            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_signature250); if (state.failed) return ;
+            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_signature267); if (state.failed) return ;
 
-            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_signature252); if (state.failed) return ;
+            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_signature269); if (state.failed) return ;
 
             }
 
@@ -573,13 +583,13 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "function"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:60:1: function : ( VOID | type ) IDENT OPENPARENT ( arguments )? CLOSEPARENT functionBody ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:64:1: function : ( VOID | type ) IDENT OPENPARENT ( arguments )? CLOSEPARENT functionBody ;
     public final void function() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:61:5: ( ( VOID | type ) IDENT OPENPARENT ( arguments )? CLOSEPARENT functionBody )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:62:9: ( VOID | type ) IDENT OPENPARENT ( arguments )? CLOSEPARENT functionBody
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:65:5: ( ( VOID | type ) IDENT OPENPARENT ( arguments )? CLOSEPARENT functionBody )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:66:9: ( VOID | type ) IDENT OPENPARENT ( arguments )? CLOSEPARENT functionBody
             {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:62:9: ( VOID | type )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:66:9: ( VOID | type )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -599,16 +609,16 @@ public class CsubParser extends Parser {
             }
             switch (alt6) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:62:10: VOID
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:66:10: VOID
                     {
-                    match(input,VOID,FOLLOW_VOID_in_function285); if (state.failed) return ;
+                    match(input,VOID,FOLLOW_VOID_in_function302); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:62:17: type
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:66:17: type
                     {
-                    pushFollow(FOLLOW_type_in_function289);
+                    pushFollow(FOLLOW_type_in_function306);
                     type();
 
                     state._fsp--;
@@ -620,11 +630,11 @@ public class CsubParser extends Parser {
             }
 
 
-            match(input,IDENT,FOLLOW_IDENT_in_function292); if (state.failed) return ;
+            match(input,IDENT,FOLLOW_IDENT_in_function309); if (state.failed) return ;
 
-            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_function294); if (state.failed) return ;
+            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_function311); if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:62:40: ( arguments )?
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:66:40: ( arguments )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -633,9 +643,9 @@ public class CsubParser extends Parser {
             }
             switch (alt7) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:62:40: arguments
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:66:40: arguments
                     {
-                    pushFollow(FOLLOW_arguments_in_function296);
+                    pushFollow(FOLLOW_arguments_in_function313);
                     arguments();
 
                     state._fsp--;
@@ -647,9 +657,9 @@ public class CsubParser extends Parser {
             }
 
 
-            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_function299); if (state.failed) return ;
+            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_function316); if (state.failed) return ;
 
-            pushFollow(FOLLOW_functionBody_in_function301);
+            pushFollow(FOLLOW_functionBody_in_function318);
             functionBody();
 
             state._fsp--;
@@ -673,10 +683,10 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "declaration"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:65:1: declaration : ( ( ( CONST )? type ( ASTERISK )? IDENT ( EQUAL expression )? ( COMMA ( ASTERISK )? IDENT ( EQUAL expression )? )* SEMICOLON ) | arrayDeclaration );
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:69:1: declaration : ( ( ( CONST )? type ( ASTERISK )? IDENT ( EQUAL expression )? ( COMMA ( ASTERISK )? IDENT ( EQUAL expression )? )* SEMICOLON ) | arrayDeclaration );
     public final void declaration() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:66:5: ( ( ( CONST )? type ( ASTERISK )? IDENT ( EQUAL expression )? ( COMMA ( ASTERISK )? IDENT ( EQUAL expression )? )* SEMICOLON ) | arrayDeclaration )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:70:5: ( ( ( CONST )? type ( ASTERISK )? IDENT ( EQUAL expression )? ( COMMA ( ASTERISK )? IDENT ( EQUAL expression )? )* SEMICOLON ) | arrayDeclaration )
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -726,12 +736,12 @@ public class CsubParser extends Parser {
             }
             switch (alt14) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:67:9: ( ( CONST )? type ( ASTERISK )? IDENT ( EQUAL expression )? ( COMMA ( ASTERISK )? IDENT ( EQUAL expression )? )* SEMICOLON )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:71:9: ( ( CONST )? type ( ASTERISK )? IDENT ( EQUAL expression )? ( COMMA ( ASTERISK )? IDENT ( EQUAL expression )? )* SEMICOLON )
                     {
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:67:9: ( ( CONST )? type ( ASTERISK )? IDENT ( EQUAL expression )? ( COMMA ( ASTERISK )? IDENT ( EQUAL expression )? )* SEMICOLON )
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:67:10: ( CONST )? type ( ASTERISK )? IDENT ( EQUAL expression )? ( COMMA ( ASTERISK )? IDENT ( EQUAL expression )? )* SEMICOLON
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:71:9: ( ( CONST )? type ( ASTERISK )? IDENT ( EQUAL expression )? ( COMMA ( ASTERISK )? IDENT ( EQUAL expression )? )* SEMICOLON )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:71:10: ( CONST )? type ( ASTERISK )? IDENT ( EQUAL expression )? ( COMMA ( ASTERISK )? IDENT ( EQUAL expression )? )* SEMICOLON
                     {
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:67:10: ( CONST )?
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:71:10: ( CONST )?
                     int alt8=2;
                     int LA8_0 = input.LA(1);
 
@@ -740,9 +750,9 @@ public class CsubParser extends Parser {
                     }
                     switch (alt8) {
                         case 1 :
-                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:67:10: CONST
+                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:71:10: CONST
                             {
-                            match(input,CONST,FOLLOW_CONST_in_declaration331); if (state.failed) return ;
+                            match(input,CONST,FOLLOW_CONST_in_declaration348); if (state.failed) return ;
 
                             }
                             break;
@@ -750,13 +760,13 @@ public class CsubParser extends Parser {
                     }
 
 
-                    pushFollow(FOLLOW_type_in_declaration334);
+                    pushFollow(FOLLOW_type_in_declaration351);
                     type();
 
                     state._fsp--;
                     if (state.failed) return ;
 
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:67:22: ( ASTERISK )?
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:71:22: ( ASTERISK )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -765,9 +775,9 @@ public class CsubParser extends Parser {
                     }
                     switch (alt9) {
                         case 1 :
-                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:67:22: ASTERISK
+                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:71:22: ASTERISK
                             {
-                            match(input,ASTERISK,FOLLOW_ASTERISK_in_declaration336); if (state.failed) return ;
+                            match(input,ASTERISK,FOLLOW_ASTERISK_in_declaration353); if (state.failed) return ;
 
                             }
                             break;
@@ -775,9 +785,9 @@ public class CsubParser extends Parser {
                     }
 
 
-                    match(input,IDENT,FOLLOW_IDENT_in_declaration339); if (state.failed) return ;
+                    match(input,IDENT,FOLLOW_IDENT_in_declaration356); if (state.failed) return ;
 
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:67:38: ( EQUAL expression )?
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:71:38: ( EQUAL expression )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -786,11 +796,11 @@ public class CsubParser extends Parser {
                     }
                     switch (alt10) {
                         case 1 :
-                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:67:39: EQUAL expression
+                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:71:39: EQUAL expression
                             {
-                            match(input,EQUAL,FOLLOW_EQUAL_in_declaration342); if (state.failed) return ;
+                            match(input,EQUAL,FOLLOW_EQUAL_in_declaration359); if (state.failed) return ;
 
-                            pushFollow(FOLLOW_expression_in_declaration344);
+                            pushFollow(FOLLOW_expression_in_declaration361);
                             expression();
 
                             state._fsp--;
@@ -802,7 +812,7 @@ public class CsubParser extends Parser {
                     }
 
 
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:68:9: ( COMMA ( ASTERISK )? IDENT ( EQUAL expression )? )*
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:72:9: ( COMMA ( ASTERISK )? IDENT ( EQUAL expression )? )*
                     loop13:
                     do {
                         int alt13=2;
@@ -815,11 +825,11 @@ public class CsubParser extends Parser {
 
                         switch (alt13) {
                     	case 1 :
-                    	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:68:10: COMMA ( ASTERISK )? IDENT ( EQUAL expression )?
+                    	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:72:10: COMMA ( ASTERISK )? IDENT ( EQUAL expression )?
                     	    {
-                    	    match(input,COMMA,FOLLOW_COMMA_in_declaration358); if (state.failed) return ;
+                    	    match(input,COMMA,FOLLOW_COMMA_in_declaration375); if (state.failed) return ;
 
-                    	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:68:16: ( ASTERISK )?
+                    	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:72:16: ( ASTERISK )?
                     	    int alt11=2;
                     	    int LA11_0 = input.LA(1);
 
@@ -828,9 +838,9 @@ public class CsubParser extends Parser {
                     	    }
                     	    switch (alt11) {
                     	        case 1 :
-                    	            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:68:16: ASTERISK
+                    	            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:72:16: ASTERISK
                     	            {
-                    	            match(input,ASTERISK,FOLLOW_ASTERISK_in_declaration360); if (state.failed) return ;
+                    	            match(input,ASTERISK,FOLLOW_ASTERISK_in_declaration377); if (state.failed) return ;
 
                     	            }
                     	            break;
@@ -838,9 +848,9 @@ public class CsubParser extends Parser {
                     	    }
 
 
-                    	    match(input,IDENT,FOLLOW_IDENT_in_declaration363); if (state.failed) return ;
+                    	    match(input,IDENT,FOLLOW_IDENT_in_declaration380); if (state.failed) return ;
 
-                    	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:68:32: ( EQUAL expression )?
+                    	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:72:32: ( EQUAL expression )?
                     	    int alt12=2;
                     	    int LA12_0 = input.LA(1);
 
@@ -849,11 +859,11 @@ public class CsubParser extends Parser {
                     	    }
                     	    switch (alt12) {
                     	        case 1 :
-                    	            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:68:33: EQUAL expression
+                    	            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:72:33: EQUAL expression
                     	            {
-                    	            match(input,EQUAL,FOLLOW_EQUAL_in_declaration366); if (state.failed) return ;
+                    	            match(input,EQUAL,FOLLOW_EQUAL_in_declaration383); if (state.failed) return ;
 
-                    	            pushFollow(FOLLOW_expression_in_declaration368);
+                    	            pushFollow(FOLLOW_expression_in_declaration385);
                     	            expression();
 
                     	            state._fsp--;
@@ -874,7 +884,7 @@ public class CsubParser extends Parser {
                     } while (true);
 
 
-                    match(input,SEMICOLON,FOLLOW_SEMICOLON_in_declaration383); if (state.failed) return ;
+                    match(input,SEMICOLON,FOLLOW_SEMICOLON_in_declaration400); if (state.failed) return ;
 
                     }
 
@@ -882,9 +892,9 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:71:9: arrayDeclaration
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:75:9: arrayDeclaration
                     {
-                    pushFollow(FOLLOW_arrayDeclaration_in_declaration404);
+                    pushFollow(FOLLOW_arrayDeclaration_in_declaration421);
                     arrayDeclaration();
 
                     state._fsp--;
@@ -910,13 +920,13 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "main"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:74:1: main : ( VOID | type ) MAIN OPENPARENT ( arguments )? CLOSEPARENT functionBody ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:78:1: main : ( VOID | type ) MAIN OPENPARENT ( arguments )? CLOSEPARENT functionBody ;
     public final void main() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:75:5: ( ( VOID | type ) MAIN OPENPARENT ( arguments )? CLOSEPARENT functionBody )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:76:9: ( VOID | type ) MAIN OPENPARENT ( arguments )? CLOSEPARENT functionBody
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:79:5: ( ( VOID | type ) MAIN OPENPARENT ( arguments )? CLOSEPARENT functionBody )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:80:9: ( VOID | type ) MAIN OPENPARENT ( arguments )? CLOSEPARENT functionBody
             {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:76:9: ( VOID | type )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:80:9: ( VOID | type )
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -936,16 +946,16 @@ public class CsubParser extends Parser {
             }
             switch (alt15) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:76:10: VOID
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:80:10: VOID
                     {
-                    match(input,VOID,FOLLOW_VOID_in_main434); if (state.failed) return ;
+                    match(input,VOID,FOLLOW_VOID_in_main451); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:76:17: type
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:80:17: type
                     {
-                    pushFollow(FOLLOW_type_in_main438);
+                    pushFollow(FOLLOW_type_in_main455);
                     type();
 
                     state._fsp--;
@@ -957,11 +967,11 @@ public class CsubParser extends Parser {
             }
 
 
-            match(input,MAIN,FOLLOW_MAIN_in_main441); if (state.failed) return ;
+            match(input,MAIN,FOLLOW_MAIN_in_main458); if (state.failed) return ;
 
-            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_main443); if (state.failed) return ;
+            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_main460); if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:76:39: ( arguments )?
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:80:39: ( arguments )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -970,9 +980,9 @@ public class CsubParser extends Parser {
             }
             switch (alt16) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:76:39: arguments
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:80:39: arguments
                     {
-                    pushFollow(FOLLOW_arguments_in_main445);
+                    pushFollow(FOLLOW_arguments_in_main462);
                     arguments();
 
                     state._fsp--;
@@ -984,9 +994,9 @@ public class CsubParser extends Parser {
             }
 
 
-            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_main448); if (state.failed) return ;
+            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_main465); if (state.failed) return ;
 
-            pushFollow(FOLLOW_functionBody_in_main450);
+            pushFollow(FOLLOW_functionBody_in_main467);
             functionBody();
 
             state._fsp--;
@@ -1010,10 +1020,10 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "type"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:83:1: type : ( INT | FLOAT | CHAR );
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:87:1: type : ( INT | FLOAT | CHAR );
     public final void type() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:84:5: ( INT | FLOAT | CHAR )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:88:5: ( INT | FLOAT | CHAR )
             // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:
             {
             if ( input.LA(1)==CHAR||input.LA(1)==FLOAT||input.LA(1)==INT ) {
@@ -1046,10 +1056,10 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "signatureArguments"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:90:1: signatureArguments : ( VOID | type ( COMMA type )* );
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:94:1: signatureArguments : ( VOID | type ( COMMA type )* );
     public final void signatureArguments() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:91:5: ( VOID | type ( COMMA type )* )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:95:5: ( VOID | type ( COMMA type )* )
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -1069,22 +1079,22 @@ public class CsubParser extends Parser {
             }
             switch (alt18) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:92:9: VOID
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:96:9: VOID
                     {
-                    match(input,VOID,FOLLOW_VOID_in_signatureArguments525); if (state.failed) return ;
+                    match(input,VOID,FOLLOW_VOID_in_signatureArguments542); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:93:9: type ( COMMA type )*
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:97:9: type ( COMMA type )*
                     {
-                    pushFollow(FOLLOW_type_in_signatureArguments536);
+                    pushFollow(FOLLOW_type_in_signatureArguments553);
                     type();
 
                     state._fsp--;
                     if (state.failed) return ;
 
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:93:14: ( COMMA type )*
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:97:14: ( COMMA type )*
                     loop17:
                     do {
                         int alt17=2;
@@ -1097,11 +1107,11 @@ public class CsubParser extends Parser {
 
                         switch (alt17) {
                     	case 1 :
-                    	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:93:15: COMMA type
+                    	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:97:15: COMMA type
                     	    {
-                    	    match(input,COMMA,FOLLOW_COMMA_in_signatureArguments539); if (state.failed) return ;
+                    	    match(input,COMMA,FOLLOW_COMMA_in_signatureArguments556); if (state.failed) return ;
 
-                    	    pushFollow(FOLLOW_type_in_signatureArguments541);
+                    	    pushFollow(FOLLOW_type_in_signatureArguments558);
                     	    type();
 
                     	    state._fsp--;
@@ -1136,10 +1146,10 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "arguments"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:96:1: arguments : ( type IDENT ( COMMA type IDENT )* | VOID );
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:100:1: arguments : ( type IDENT ( COMMA type IDENT )* | VOID );
     public final void arguments() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:97:5: ( type IDENT ( COMMA type IDENT )* | VOID )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:101:5: ( type IDENT ( COMMA type IDENT )* | VOID )
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -1159,17 +1169,17 @@ public class CsubParser extends Parser {
             }
             switch (alt20) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:98:9: type IDENT ( COMMA type IDENT )*
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:102:9: type IDENT ( COMMA type IDENT )*
                     {
-                    pushFollow(FOLLOW_type_in_arguments572);
+                    pushFollow(FOLLOW_type_in_arguments589);
                     type();
 
                     state._fsp--;
                     if (state.failed) return ;
 
-                    match(input,IDENT,FOLLOW_IDENT_in_arguments574); if (state.failed) return ;
+                    match(input,IDENT,FOLLOW_IDENT_in_arguments591); if (state.failed) return ;
 
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:98:20: ( COMMA type IDENT )*
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:102:20: ( COMMA type IDENT )*
                     loop19:
                     do {
                         int alt19=2;
@@ -1182,17 +1192,17 @@ public class CsubParser extends Parser {
 
                         switch (alt19) {
                     	case 1 :
-                    	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:98:21: COMMA type IDENT
+                    	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:102:21: COMMA type IDENT
                     	    {
-                    	    match(input,COMMA,FOLLOW_COMMA_in_arguments577); if (state.failed) return ;
+                    	    match(input,COMMA,FOLLOW_COMMA_in_arguments594); if (state.failed) return ;
 
-                    	    pushFollow(FOLLOW_type_in_arguments579);
+                    	    pushFollow(FOLLOW_type_in_arguments596);
                     	    type();
 
                     	    state._fsp--;
                     	    if (state.failed) return ;
 
-                    	    match(input,IDENT,FOLLOW_IDENT_in_arguments581); if (state.failed) return ;
+                    	    match(input,IDENT,FOLLOW_IDENT_in_arguments598); if (state.failed) return ;
 
                     	    }
                     	    break;
@@ -1206,9 +1216,9 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:99:9: VOID
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:103:9: VOID
                     {
-                    match(input,VOID,FOLLOW_VOID_in_arguments593); if (state.failed) return ;
+                    match(input,VOID,FOLLOW_VOID_in_arguments610); if (state.failed) return ;
 
                     }
                     break;
@@ -1230,15 +1240,15 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "functionBody"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:102:1: functionBody : OPENCURLY ( statement )* CLOSECURLY ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:106:1: functionBody : OPENCURLY ( statement )* CLOSECURLY ;
     public final void functionBody() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:103:5: ( OPENCURLY ( statement )* CLOSECURLY )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:104:7: OPENCURLY ( statement )* CLOSECURLY
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:107:5: ( OPENCURLY ( statement )* CLOSECURLY )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:108:7: OPENCURLY ( statement )* CLOSECURLY
             {
-            match(input,OPENCURLY,FOLLOW_OPENCURLY_in_functionBody622); if (state.failed) return ;
+            match(input,OPENCURLY,FOLLOW_OPENCURLY_in_functionBody639); if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:104:17: ( statement )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:108:17: ( statement )*
             loop21:
             do {
                 int alt21=2;
@@ -1251,9 +1261,9 @@ public class CsubParser extends Parser {
 
                 switch (alt21) {
             	case 1 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:104:17: statement
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:108:17: statement
             	    {
-            	    pushFollow(FOLLOW_statement_in_functionBody624);
+            	    pushFollow(FOLLOW_statement_in_functionBody641);
             	    statement();
 
             	    state._fsp--;
@@ -1268,7 +1278,7 @@ public class CsubParser extends Parser {
             } while (true);
 
 
-            match(input,CLOSECURLY,FOLLOW_CLOSECURLY_in_functionBody627); if (state.failed) return ;
+            match(input,CLOSECURLY,FOLLOW_CLOSECURLY_in_functionBody644); if (state.failed) return ;
 
             }
 
@@ -1288,21 +1298,21 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "arrayDeclaration"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:107:1: arrayDeclaration : type IDENT ( ( OPENBRACKET INTVALUE CLOSEBRACKET ) | ( ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) ) ) ) SEMICOLON ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:111:1: arrayDeclaration : type IDENT ( ( OPENBRACKET INTVALUE CLOSEBRACKET ) | ( ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) ) ) ) SEMICOLON ;
     public final void arrayDeclaration() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:108:5: ( type IDENT ( ( OPENBRACKET INTVALUE CLOSEBRACKET ) | ( ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) ) ) ) SEMICOLON )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:109:9: type IDENT ( ( OPENBRACKET INTVALUE CLOSEBRACKET ) | ( ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) ) ) ) SEMICOLON
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:112:5: ( type IDENT ( ( OPENBRACKET INTVALUE CLOSEBRACKET ) | ( ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) ) ) ) SEMICOLON )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:113:9: type IDENT ( ( OPENBRACKET INTVALUE CLOSEBRACKET ) | ( ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) ) ) ) SEMICOLON
             {
-            pushFollow(FOLLOW_type_in_arrayDeclaration656);
+            pushFollow(FOLLOW_type_in_arrayDeclaration673);
             type();
 
             state._fsp--;
             if (state.failed) return ;
 
-            match(input,IDENT,FOLLOW_IDENT_in_arrayDeclaration658); if (state.failed) return ;
+            match(input,IDENT,FOLLOW_IDENT_in_arrayDeclaration675); if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:110:9: ( ( OPENBRACKET INTVALUE CLOSEBRACKET ) | ( ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) ) ) )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:114:9: ( ( OPENBRACKET INTVALUE CLOSEBRACKET ) | ( ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) ) ) )
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -1361,16 +1371,16 @@ public class CsubParser extends Parser {
             }
             switch (alt25) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:111:13: ( OPENBRACKET INTVALUE CLOSEBRACKET )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:115:13: ( OPENBRACKET INTVALUE CLOSEBRACKET )
                     {
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:111:13: ( OPENBRACKET INTVALUE CLOSEBRACKET )
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:111:14: OPENBRACKET INTVALUE CLOSEBRACKET
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:115:13: ( OPENBRACKET INTVALUE CLOSEBRACKET )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:115:14: OPENBRACKET INTVALUE CLOSEBRACKET
                     {
-                    match(input,OPENBRACKET,FOLLOW_OPENBRACKET_in_arrayDeclaration684); if (state.failed) return ;
+                    match(input,OPENBRACKET,FOLLOW_OPENBRACKET_in_arrayDeclaration701); if (state.failed) return ;
 
-                    match(input,INTVALUE,FOLLOW_INTVALUE_in_arrayDeclaration686); if (state.failed) return ;
+                    match(input,INTVALUE,FOLLOW_INTVALUE_in_arrayDeclaration703); if (state.failed) return ;
 
-                    match(input,CLOSEBRACKET,FOLLOW_CLOSEBRACKET_in_arrayDeclaration688); if (state.failed) return ;
+                    match(input,CLOSEBRACKET,FOLLOW_CLOSEBRACKET_in_arrayDeclaration705); if (state.failed) return ;
 
                     }
 
@@ -1378,17 +1388,17 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:113:13: ( ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) ) )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:117:13: ( ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) ) )
                     {
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:113:13: ( ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) ) )
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:114:17: ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:117:13: ( ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) ) )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:118:17: ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET ) ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) )
                     {
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:114:17: ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET )
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:114:18: OPENBRACKET ( INTVALUE )? CLOSEBRACKET
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:118:17: ( OPENBRACKET ( INTVALUE )? CLOSEBRACKET )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:118:18: OPENBRACKET ( INTVALUE )? CLOSEBRACKET
                     {
-                    match(input,OPENBRACKET,FOLLOW_OPENBRACKET_in_arrayDeclaration737); if (state.failed) return ;
+                    match(input,OPENBRACKET,FOLLOW_OPENBRACKET_in_arrayDeclaration754); if (state.failed) return ;
 
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:114:30: ( INTVALUE )?
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:118:30: ( INTVALUE )?
                     int alt22=2;
                     int LA22_0 = input.LA(1);
 
@@ -1397,9 +1407,9 @@ public class CsubParser extends Parser {
                     }
                     switch (alt22) {
                         case 1 :
-                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:114:30: INTVALUE
+                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:118:30: INTVALUE
                             {
-                            match(input,INTVALUE,FOLLOW_INTVALUE_in_arrayDeclaration739); if (state.failed) return ;
+                            match(input,INTVALUE,FOLLOW_INTVALUE_in_arrayDeclaration756); if (state.failed) return ;
 
                             }
                             break;
@@ -1407,17 +1417,17 @@ public class CsubParser extends Parser {
                     }
 
 
-                    match(input,CLOSEBRACKET,FOLLOW_CLOSEBRACKET_in_arrayDeclaration742); if (state.failed) return ;
+                    match(input,CLOSEBRACKET,FOLLOW_CLOSEBRACKET_in_arrayDeclaration759); if (state.failed) return ;
 
                     }
 
 
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:115:17: ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) )
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:116:21: EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:119:17: ( EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY ) )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:120:21: EQUAL ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY )
                     {
-                    match(input,EQUAL,FOLLOW_EQUAL_in_arrayDeclaration784); if (state.failed) return ;
+                    match(input,EQUAL,FOLLOW_EQUAL_in_arrayDeclaration801); if (state.failed) return ;
 
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:117:21: ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:121:21: ( expression | OPENCURLY expression ( COMMA expression )* CLOSECURLY )
                     int alt24=2;
                     int LA24_0 = input.LA(1);
 
@@ -1437,9 +1447,9 @@ public class CsubParser extends Parser {
                     }
                     switch (alt24) {
                         case 1 :
-                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:117:22: expression
+                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:121:22: expression
                             {
-                            pushFollow(FOLLOW_expression_in_arrayDeclaration807);
+                            pushFollow(FOLLOW_expression_in_arrayDeclaration824);
                             expression();
 
                             state._fsp--;
@@ -1448,17 +1458,17 @@ public class CsubParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:119:21: OPENCURLY expression ( COMMA expression )* CLOSECURLY
+                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:123:21: OPENCURLY expression ( COMMA expression )* CLOSECURLY
                             {
-                            match(input,OPENCURLY,FOLLOW_OPENCURLY_in_arrayDeclaration851); if (state.failed) return ;
+                            match(input,OPENCURLY,FOLLOW_OPENCURLY_in_arrayDeclaration868); if (state.failed) return ;
 
-                            pushFollow(FOLLOW_expression_in_arrayDeclaration853);
+                            pushFollow(FOLLOW_expression_in_arrayDeclaration870);
                             expression();
 
                             state._fsp--;
                             if (state.failed) return ;
 
-                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:119:42: ( COMMA expression )*
+                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:123:42: ( COMMA expression )*
                             loop23:
                             do {
                                 int alt23=2;
@@ -1471,11 +1481,11 @@ public class CsubParser extends Parser {
 
                                 switch (alt23) {
                             	case 1 :
-                            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:119:43: COMMA expression
+                            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:123:43: COMMA expression
                             	    {
-                            	    match(input,COMMA,FOLLOW_COMMA_in_arrayDeclaration856); if (state.failed) return ;
+                            	    match(input,COMMA,FOLLOW_COMMA_in_arrayDeclaration873); if (state.failed) return ;
 
-                            	    pushFollow(FOLLOW_expression_in_arrayDeclaration858);
+                            	    pushFollow(FOLLOW_expression_in_arrayDeclaration875);
                             	    expression();
 
                             	    state._fsp--;
@@ -1490,7 +1500,7 @@ public class CsubParser extends Parser {
                             } while (true);
 
 
-                            match(input,CLOSECURLY,FOLLOW_CLOSECURLY_in_arrayDeclaration862); if (state.failed) return ;
+                            match(input,CLOSECURLY,FOLLOW_CLOSECURLY_in_arrayDeclaration879); if (state.failed) return ;
 
                             }
                             break;
@@ -1510,7 +1520,7 @@ public class CsubParser extends Parser {
             }
 
 
-            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_arrayDeclaration916); if (state.failed) return ;
+            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_arrayDeclaration933); if (state.failed) return ;
 
             }
 
@@ -1530,10 +1540,10 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "statement"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:129:1: statement : ( SEMICOLON | ( INTVALUE | FLOATVALUE | CHARVALUE | TRUE | FALSE | ( AMPERSAND )? IDENT | STRINGVALUE | OPENPARENT )=> expression | declaration | assignment | ifControl | forControl | whileControl | doWhileControl | returnStmt | BREAK SEMICOLON | CONTINUE SEMICOLON );
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:133:1: statement : ( SEMICOLON | ( INTVALUE | FLOATVALUE | CHARVALUE | TRUE | FALSE | ( AMPERSAND )? IDENT | STRINGVALUE | OPENPARENT )=> expression | declaration | assignment | ifControl | forControl | whileControl | doWhileControl | returnStmt | BREAK SEMICOLON | CONTINUE SEMICOLON );
     public final void statement() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:130:5: ( SEMICOLON | ( INTVALUE | FLOATVALUE | CHARVALUE | TRUE | FALSE | ( AMPERSAND )? IDENT | STRINGVALUE | OPENPARENT )=> expression | declaration | assignment | ifControl | forControl | whileControl | doWhileControl | returnStmt | BREAK SEMICOLON | CONTINUE SEMICOLON )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:134:5: ( SEMICOLON | ( INTVALUE | FLOATVALUE | CHARVALUE | TRUE | FALSE | ( AMPERSAND )? IDENT | STRINGVALUE | OPENPARENT )=> expression | declaration | assignment | ifControl | forControl | whileControl | doWhileControl | returnStmt | BREAK SEMICOLON | CONTINUE SEMICOLON )
             int alt26=11;
             int LA26_0 = input.LA(1);
 
@@ -1706,16 +1716,16 @@ public class CsubParser extends Parser {
             }
             switch (alt26) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:131:9: SEMICOLON
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:135:9: SEMICOLON
                     {
-                    match(input,SEMICOLON,FOLLOW_SEMICOLON_in_statement944); if (state.failed) return ;
+                    match(input,SEMICOLON,FOLLOW_SEMICOLON_in_statement961); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:132:9: ( INTVALUE | FLOATVALUE | CHARVALUE | TRUE | FALSE | ( AMPERSAND )? IDENT | STRINGVALUE | OPENPARENT )=> expression
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:9: ( INTVALUE | FLOATVALUE | CHARVALUE | TRUE | FALSE | ( AMPERSAND )? IDENT | STRINGVALUE | OPENPARENT )=> expression
                     {
-                    pushFollow(FOLLOW_expression_in_statement991);
+                    pushFollow(FOLLOW_expression_in_statement1008);
                     expression();
 
                     state._fsp--;
@@ -1724,9 +1734,9 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:133:9: declaration
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:137:9: declaration
                     {
-                    pushFollow(FOLLOW_declaration_in_statement1001);
+                    pushFollow(FOLLOW_declaration_in_statement1018);
                     declaration();
 
                     state._fsp--;
@@ -1735,9 +1745,9 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:134:9: assignment
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:138:9: assignment
                     {
-                    pushFollow(FOLLOW_assignment_in_statement1012);
+                    pushFollow(FOLLOW_assignment_in_statement1029);
                     assignment();
 
                     state._fsp--;
@@ -1746,9 +1756,9 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:135:9: ifControl
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:139:9: ifControl
                     {
-                    pushFollow(FOLLOW_ifControl_in_statement1022);
+                    pushFollow(FOLLOW_ifControl_in_statement1039);
                     ifControl();
 
                     state._fsp--;
@@ -1757,9 +1767,9 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:9: forControl
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:140:9: forControl
                     {
-                    pushFollow(FOLLOW_forControl_in_statement1032);
+                    pushFollow(FOLLOW_forControl_in_statement1049);
                     forControl();
 
                     state._fsp--;
@@ -1768,9 +1778,9 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:137:9: whileControl
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:141:9: whileControl
                     {
-                    pushFollow(FOLLOW_whileControl_in_statement1042);
+                    pushFollow(FOLLOW_whileControl_in_statement1059);
                     whileControl();
 
                     state._fsp--;
@@ -1779,9 +1789,9 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:138:9: doWhileControl
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:142:9: doWhileControl
                     {
-                    pushFollow(FOLLOW_doWhileControl_in_statement1052);
+                    pushFollow(FOLLOW_doWhileControl_in_statement1069);
                     doWhileControl();
 
                     state._fsp--;
@@ -1790,9 +1800,9 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:139:9: returnStmt
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:143:9: returnStmt
                     {
-                    pushFollow(FOLLOW_returnStmt_in_statement1062);
+                    pushFollow(FOLLOW_returnStmt_in_statement1079);
                     returnStmt();
 
                     state._fsp--;
@@ -1801,20 +1811,20 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 10 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:140:9: BREAK SEMICOLON
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:144:9: BREAK SEMICOLON
                     {
-                    match(input,BREAK,FOLLOW_BREAK_in_statement1072); if (state.failed) return ;
+                    match(input,BREAK,FOLLOW_BREAK_in_statement1089); if (state.failed) return ;
 
-                    match(input,SEMICOLON,FOLLOW_SEMICOLON_in_statement1074); if (state.failed) return ;
+                    match(input,SEMICOLON,FOLLOW_SEMICOLON_in_statement1091); if (state.failed) return ;
 
                     }
                     break;
                 case 11 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:141:9: CONTINUE SEMICOLON
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:145:9: CONTINUE SEMICOLON
                     {
-                    match(input,CONTINUE,FOLLOW_CONTINUE_in_statement1084); if (state.failed) return ;
+                    match(input,CONTINUE,FOLLOW_CONTINUE_in_statement1101); if (state.failed) return ;
 
-                    match(input,SEMICOLON,FOLLOW_SEMICOLON_in_statement1086); if (state.failed) return ;
+                    match(input,SEMICOLON,FOLLOW_SEMICOLON_in_statement1103); if (state.failed) return ;
 
                     }
                     break;
@@ -1836,10 +1846,10 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "assignment"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:147:1: assignment : ( ( ( ASTERISK )? IDENT EQUAL expression SEMICOLON ) | arrayAssignment );
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:151:1: assignment : ( ( ( ASTERISK )? IDENT EQUAL expression SEMICOLON ) | arrayAssignment );
     public final void assignment() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:148:5: ( ( ( ASTERISK )? IDENT EQUAL expression SEMICOLON ) | arrayAssignment )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:152:5: ( ( ( ASTERISK )? IDENT EQUAL expression SEMICOLON ) | arrayAssignment )
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -1874,12 +1884,12 @@ public class CsubParser extends Parser {
             }
             switch (alt28) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:149:9: ( ( ASTERISK )? IDENT EQUAL expression SEMICOLON )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:153:9: ( ( ASTERISK )? IDENT EQUAL expression SEMICOLON )
                     {
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:149:9: ( ( ASTERISK )? IDENT EQUAL expression SEMICOLON )
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:149:10: ( ASTERISK )? IDENT EQUAL expression SEMICOLON
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:153:9: ( ( ASTERISK )? IDENT EQUAL expression SEMICOLON )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:153:10: ( ASTERISK )? IDENT EQUAL expression SEMICOLON
                     {
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:149:10: ( ASTERISK )?
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:153:10: ( ASTERISK )?
                     int alt27=2;
                     int LA27_0 = input.LA(1);
 
@@ -1888,9 +1898,9 @@ public class CsubParser extends Parser {
                     }
                     switch (alt27) {
                         case 1 :
-                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:149:10: ASTERISK
+                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:153:10: ASTERISK
                             {
-                            match(input,ASTERISK,FOLLOW_ASTERISK_in_assignment1114); if (state.failed) return ;
+                            match(input,ASTERISK,FOLLOW_ASTERISK_in_assignment1131); if (state.failed) return ;
 
                             }
                             break;
@@ -1898,17 +1908,17 @@ public class CsubParser extends Parser {
                     }
 
 
-                    match(input,IDENT,FOLLOW_IDENT_in_assignment1126); if (state.failed) return ;
+                    match(input,IDENT,FOLLOW_IDENT_in_assignment1143); if (state.failed) return ;
 
-                    match(input,EQUAL,FOLLOW_EQUAL_in_assignment1128); if (state.failed) return ;
+                    match(input,EQUAL,FOLLOW_EQUAL_in_assignment1145); if (state.failed) return ;
 
-                    pushFollow(FOLLOW_expression_in_assignment1130);
+                    pushFollow(FOLLOW_expression_in_assignment1147);
                     expression();
 
                     state._fsp--;
                     if (state.failed) return ;
 
-                    match(input,SEMICOLON,FOLLOW_SEMICOLON_in_assignment1132); if (state.failed) return ;
+                    match(input,SEMICOLON,FOLLOW_SEMICOLON_in_assignment1149); if (state.failed) return ;
 
                     }
 
@@ -1916,9 +1926,9 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:152:9: arrayAssignment
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:156:9: arrayAssignment
                     {
-                    pushFollow(FOLLOW_arrayAssignment_in_assignment1153);
+                    pushFollow(FOLLOW_arrayAssignment_in_assignment1170);
                     arrayAssignment();
 
                     state._fsp--;
@@ -1944,29 +1954,29 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "arrayAssignment"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:155:1: arrayAssignment : IDENT OPENBRACKET INTVALUE CLOSEBRACKET EQUAL expression SEMICOLON ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:159:1: arrayAssignment : IDENT OPENBRACKET INTVALUE CLOSEBRACKET EQUAL expression SEMICOLON ;
     public final void arrayAssignment() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:156:5: ( IDENT OPENBRACKET INTVALUE CLOSEBRACKET EQUAL expression SEMICOLON )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:157:9: IDENT OPENBRACKET INTVALUE CLOSEBRACKET EQUAL expression SEMICOLON
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:160:5: ( IDENT OPENBRACKET INTVALUE CLOSEBRACKET EQUAL expression SEMICOLON )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:161:9: IDENT OPENBRACKET INTVALUE CLOSEBRACKET EQUAL expression SEMICOLON
             {
-            match(input,IDENT,FOLLOW_IDENT_in_arrayAssignment1182); if (state.failed) return ;
+            match(input,IDENT,FOLLOW_IDENT_in_arrayAssignment1199); if (state.failed) return ;
 
-            match(input,OPENBRACKET,FOLLOW_OPENBRACKET_in_arrayAssignment1184); if (state.failed) return ;
+            match(input,OPENBRACKET,FOLLOW_OPENBRACKET_in_arrayAssignment1201); if (state.failed) return ;
 
-            match(input,INTVALUE,FOLLOW_INTVALUE_in_arrayAssignment1186); if (state.failed) return ;
+            match(input,INTVALUE,FOLLOW_INTVALUE_in_arrayAssignment1203); if (state.failed) return ;
 
-            match(input,CLOSEBRACKET,FOLLOW_CLOSEBRACKET_in_arrayAssignment1188); if (state.failed) return ;
+            match(input,CLOSEBRACKET,FOLLOW_CLOSEBRACKET_in_arrayAssignment1205); if (state.failed) return ;
 
-            match(input,EQUAL,FOLLOW_EQUAL_in_arrayAssignment1190); if (state.failed) return ;
+            match(input,EQUAL,FOLLOW_EQUAL_in_arrayAssignment1207); if (state.failed) return ;
 
-            pushFollow(FOLLOW_expression_in_arrayAssignment1192);
+            pushFollow(FOLLOW_expression_in_arrayAssignment1209);
             expression();
 
             state._fsp--;
             if (state.failed) return ;
 
-            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_arrayAssignment1194); if (state.failed) return ;
+            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_arrayAssignment1211); if (state.failed) return ;
 
             }
 
@@ -1986,31 +1996,31 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "ifControl"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:160:1: ifControl : IF OPENPARENT expression CLOSEPARENT controlBody ( ( ELSE controlBody )=> ELSE controlBody )? ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:164:1: ifControl : IF OPENPARENT expression CLOSEPARENT controlBody ( ( ELSE controlBody )=> ELSE controlBody )? ;
     public final void ifControl() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:161:7: ( IF OPENPARENT expression CLOSEPARENT controlBody ( ( ELSE controlBody )=> ELSE controlBody )? )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:162:9: IF OPENPARENT expression CLOSEPARENT controlBody ( ( ELSE controlBody )=> ELSE controlBody )?
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:165:7: ( IF OPENPARENT expression CLOSEPARENT controlBody ( ( ELSE controlBody )=> ELSE controlBody )? )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:166:9: IF OPENPARENT expression CLOSEPARENT controlBody ( ( ELSE controlBody )=> ELSE controlBody )?
             {
-            match(input,IF,FOLLOW_IF_in_ifControl1225); if (state.failed) return ;
+            match(input,IF,FOLLOW_IF_in_ifControl1242); if (state.failed) return ;
 
-            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_ifControl1227); if (state.failed) return ;
+            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_ifControl1244); if (state.failed) return ;
 
-            pushFollow(FOLLOW_expression_in_ifControl1229);
+            pushFollow(FOLLOW_expression_in_ifControl1246);
             expression();
 
             state._fsp--;
             if (state.failed) return ;
 
-            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_ifControl1231); if (state.failed) return ;
+            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_ifControl1248); if (state.failed) return ;
 
-            pushFollow(FOLLOW_controlBody_in_ifControl1241);
+            pushFollow(FOLLOW_controlBody_in_ifControl1258);
             controlBody();
 
             state._fsp--;
             if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:164:9: ( ( ELSE controlBody )=> ELSE controlBody )?
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:168:9: ( ( ELSE controlBody )=> ELSE controlBody )?
             int alt29=2;
             int LA29_0 = input.LA(1);
 
@@ -2023,11 +2033,11 @@ public class CsubParser extends Parser {
             }
             switch (alt29) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:164:10: ( ELSE controlBody )=> ELSE controlBody
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:168:10: ( ELSE controlBody )=> ELSE controlBody
                     {
-                    match(input,ELSE,FOLLOW_ELSE_in_ifControl1258); if (state.failed) return ;
+                    match(input,ELSE,FOLLOW_ELSE_in_ifControl1275); if (state.failed) return ;
 
-                    pushFollow(FOLLOW_controlBody_in_ifControl1260);
+                    pushFollow(FOLLOW_controlBody_in_ifControl1277);
                     controlBody();
 
                     state._fsp--;
@@ -2057,41 +2067,41 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "forControl"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:166:1: forControl : FOR OPENPARENT assignmentExpression SEMICOLON expression SEMICOLON stepExpression CLOSEPARENT controlBody ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:170:1: forControl : FOR OPENPARENT assignmentExpression SEMICOLON expression SEMICOLON stepExpression CLOSEPARENT controlBody ;
     public final void forControl() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:167:7: ( FOR OPENPARENT assignmentExpression SEMICOLON expression SEMICOLON stepExpression CLOSEPARENT controlBody )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:168:9: FOR OPENPARENT assignmentExpression SEMICOLON expression SEMICOLON stepExpression CLOSEPARENT controlBody
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:171:7: ( FOR OPENPARENT assignmentExpression SEMICOLON expression SEMICOLON stepExpression CLOSEPARENT controlBody )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:172:9: FOR OPENPARENT assignmentExpression SEMICOLON expression SEMICOLON stepExpression CLOSEPARENT controlBody
             {
-            match(input,FOR,FOLLOW_FOR_in_forControl1290); if (state.failed) return ;
+            match(input,FOR,FOLLOW_FOR_in_forControl1307); if (state.failed) return ;
 
-            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_forControl1292); if (state.failed) return ;
+            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_forControl1309); if (state.failed) return ;
 
-            pushFollow(FOLLOW_assignmentExpression_in_forControl1294);
+            pushFollow(FOLLOW_assignmentExpression_in_forControl1311);
             assignmentExpression();
 
             state._fsp--;
             if (state.failed) return ;
 
-            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_forControl1296); if (state.failed) return ;
+            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_forControl1313); if (state.failed) return ;
 
-            pushFollow(FOLLOW_expression_in_forControl1298);
+            pushFollow(FOLLOW_expression_in_forControl1315);
             expression();
 
             state._fsp--;
             if (state.failed) return ;
 
-            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_forControl1300); if (state.failed) return ;
+            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_forControl1317); if (state.failed) return ;
 
-            pushFollow(FOLLOW_stepExpression_in_forControl1302);
+            pushFollow(FOLLOW_stepExpression_in_forControl1319);
             stepExpression();
 
             state._fsp--;
             if (state.failed) return ;
 
-            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_forControl1304); if (state.failed) return ;
+            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_forControl1321); if (state.failed) return ;
 
-            pushFollow(FOLLOW_controlBody_in_forControl1314);
+            pushFollow(FOLLOW_controlBody_in_forControl1331);
             controlBody();
 
             state._fsp--;
@@ -2115,25 +2125,25 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "whileControl"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:171:1: whileControl : WHILE OPENPARENT expression CLOSEPARENT controlBody ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:175:1: whileControl : WHILE OPENPARENT expression CLOSEPARENT controlBody ;
     public final void whileControl() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:172:7: ( WHILE OPENPARENT expression CLOSEPARENT controlBody )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:173:9: WHILE OPENPARENT expression CLOSEPARENT controlBody
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:176:7: ( WHILE OPENPARENT expression CLOSEPARENT controlBody )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:177:9: WHILE OPENPARENT expression CLOSEPARENT controlBody
             {
-            match(input,WHILE,FOLLOW_WHILE_in_whileControl1342); if (state.failed) return ;
+            match(input,WHILE,FOLLOW_WHILE_in_whileControl1359); if (state.failed) return ;
 
-            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_whileControl1344); if (state.failed) return ;
+            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_whileControl1361); if (state.failed) return ;
 
-            pushFollow(FOLLOW_expression_in_whileControl1346);
+            pushFollow(FOLLOW_expression_in_whileControl1363);
             expression();
 
             state._fsp--;
             if (state.failed) return ;
 
-            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_whileControl1348); if (state.failed) return ;
+            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_whileControl1365); if (state.failed) return ;
 
-            pushFollow(FOLLOW_controlBody_in_whileControl1358);
+            pushFollow(FOLLOW_controlBody_in_whileControl1375);
             controlBody();
 
             state._fsp--;
@@ -2157,33 +2167,33 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "doWhileControl"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:176:1: doWhileControl : DO controlBody WHILE OPENPARENT expression CLOSEPARENT SEMICOLON ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:180:1: doWhileControl : DO controlBody WHILE OPENPARENT expression CLOSEPARENT SEMICOLON ;
     public final void doWhileControl() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:177:7: ( DO controlBody WHILE OPENPARENT expression CLOSEPARENT SEMICOLON )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:177:9: DO controlBody WHILE OPENPARENT expression CLOSEPARENT SEMICOLON
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:181:7: ( DO controlBody WHILE OPENPARENT expression CLOSEPARENT SEMICOLON )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:181:9: DO controlBody WHILE OPENPARENT expression CLOSEPARENT SEMICOLON
             {
-            match(input,DO,FOLLOW_DO_in_doWhileControl1378); if (state.failed) return ;
+            match(input,DO,FOLLOW_DO_in_doWhileControl1395); if (state.failed) return ;
 
-            pushFollow(FOLLOW_controlBody_in_doWhileControl1388);
+            pushFollow(FOLLOW_controlBody_in_doWhileControl1405);
             controlBody();
 
             state._fsp--;
             if (state.failed) return ;
 
-            match(input,WHILE,FOLLOW_WHILE_in_doWhileControl1398); if (state.failed) return ;
+            match(input,WHILE,FOLLOW_WHILE_in_doWhileControl1415); if (state.failed) return ;
 
-            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_doWhileControl1400); if (state.failed) return ;
+            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_doWhileControl1417); if (state.failed) return ;
 
-            pushFollow(FOLLOW_expression_in_doWhileControl1402);
+            pushFollow(FOLLOW_expression_in_doWhileControl1419);
             expression();
 
             state._fsp--;
             if (state.failed) return ;
 
-            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_doWhileControl1404); if (state.failed) return ;
+            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_doWhileControl1421); if (state.failed) return ;
 
-            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_doWhileControl1406); if (state.failed) return ;
+            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_doWhileControl1423); if (state.failed) return ;
 
             }
 
@@ -2203,15 +2213,15 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "returnStmt"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:182:1: returnStmt : RETURN ( expression )? SEMICOLON ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:186:1: returnStmt : RETURN ( expression )? SEMICOLON ;
     public final void returnStmt() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:183:7: ( RETURN ( expression )? SEMICOLON )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:184:9: RETURN ( expression )? SEMICOLON
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:187:7: ( RETURN ( expression )? SEMICOLON )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:188:9: RETURN ( expression )? SEMICOLON
             {
-            match(input,RETURN,FOLLOW_RETURN_in_returnStmt1441); if (state.failed) return ;
+            match(input,RETURN,FOLLOW_RETURN_in_returnStmt1458); if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:184:16: ( expression )?
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:188:16: ( expression )?
             int alt30=2;
             int LA30_0 = input.LA(1);
 
@@ -2220,9 +2230,9 @@ public class CsubParser extends Parser {
             }
             switch (alt30) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:184:17: expression
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:188:17: expression
                     {
-                    pushFollow(FOLLOW_expression_in_returnStmt1444);
+                    pushFollow(FOLLOW_expression_in_returnStmt1461);
                     expression();
 
                     state._fsp--;
@@ -2234,7 +2244,7 @@ public class CsubParser extends Parser {
             }
 
 
-            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_returnStmt1448); if (state.failed) return ;
+            match(input,SEMICOLON,FOLLOW_SEMICOLON_in_returnStmt1465); if (state.failed) return ;
 
             }
 
@@ -2254,13 +2264,13 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "controlBody"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:190:1: controlBody : ( statement | OPENCURLY ( statement )* CLOSECURLY ) ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:194:1: controlBody : ( statement | OPENCURLY ( statement )* CLOSECURLY ) ;
     public final void controlBody() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:191:7: ( ( statement | OPENCURLY ( statement )* CLOSECURLY ) )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:192:9: ( statement | OPENCURLY ( statement )* CLOSECURLY )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:195:7: ( ( statement | OPENCURLY ( statement )* CLOSECURLY ) )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:196:9: ( statement | OPENCURLY ( statement )* CLOSECURLY )
             {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:192:9: ( statement | OPENCURLY ( statement )* CLOSECURLY )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:196:9: ( statement | OPENCURLY ( statement )* CLOSECURLY )
             int alt32=2;
             int LA32_0 = input.LA(1);
 
@@ -2280,9 +2290,9 @@ public class CsubParser extends Parser {
             }
             switch (alt32) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:192:10: statement
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:196:10: statement
                     {
-                    pushFollow(FOLLOW_statement_in_controlBody1486);
+                    pushFollow(FOLLOW_statement_in_controlBody1503);
                     statement();
 
                     state._fsp--;
@@ -2291,11 +2301,11 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:192:22: OPENCURLY ( statement )* CLOSECURLY
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:196:22: OPENCURLY ( statement )* CLOSECURLY
                     {
-                    match(input,OPENCURLY,FOLLOW_OPENCURLY_in_controlBody1490); if (state.failed) return ;
+                    match(input,OPENCURLY,FOLLOW_OPENCURLY_in_controlBody1507); if (state.failed) return ;
 
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:192:32: ( statement )*
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:196:32: ( statement )*
                     loop31:
                     do {
                         int alt31=2;
@@ -2308,9 +2318,9 @@ public class CsubParser extends Parser {
 
                         switch (alt31) {
                     	case 1 :
-                    	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:192:32: statement
+                    	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:196:32: statement
                     	    {
-                    	    pushFollow(FOLLOW_statement_in_controlBody1492);
+                    	    pushFollow(FOLLOW_statement_in_controlBody1509);
                     	    statement();
 
                     	    state._fsp--;
@@ -2325,7 +2335,7 @@ public class CsubParser extends Parser {
                     } while (true);
 
 
-                    match(input,CLOSECURLY,FOLLOW_CLOSECURLY_in_controlBody1495); if (state.failed) return ;
+                    match(input,CLOSECURLY,FOLLOW_CLOSECURLY_in_controlBody1512); if (state.failed) return ;
 
                     }
                     break;
@@ -2351,13 +2361,13 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "assignmentExpression"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:195:1: assignmentExpression : ( INT | FLOAT )? IDENT EQUAL expression ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:199:1: assignmentExpression : ( INT | FLOAT )? IDENT EQUAL expression ;
     public final void assignmentExpression() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:196:7: ( ( INT | FLOAT )? IDENT EQUAL expression )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:197:9: ( INT | FLOAT )? IDENT EQUAL expression
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:200:7: ( ( INT | FLOAT )? IDENT EQUAL expression )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:201:9: ( INT | FLOAT )? IDENT EQUAL expression
             {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:197:9: ( INT | FLOAT )?
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:201:9: ( INT | FLOAT )?
             int alt33=2;
             int LA33_0 = input.LA(1);
 
@@ -2386,11 +2396,11 @@ public class CsubParser extends Parser {
             }
 
 
-            match(input,IDENT,FOLLOW_IDENT_in_assignmentExpression1540); if (state.failed) return ;
+            match(input,IDENT,FOLLOW_IDENT_in_assignmentExpression1557); if (state.failed) return ;
 
-            match(input,EQUAL,FOLLOW_EQUAL_in_assignmentExpression1542); if (state.failed) return ;
+            match(input,EQUAL,FOLLOW_EQUAL_in_assignmentExpression1559); if (state.failed) return ;
 
-            pushFollow(FOLLOW_expression_in_assignmentExpression1544);
+            pushFollow(FOLLOW_expression_in_assignmentExpression1561);
             expression();
 
             state._fsp--;
@@ -2414,13 +2424,13 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "stepExpression"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:200:1: stepExpression : ( IDENT ( INCREMENT | DECREMENT ) | IDENT ( PLUS | MINUS ) ( expression ) ) ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:204:1: stepExpression : ( IDENT ( INCREMENT | DECREMENT ) | IDENT ( PLUS | MINUS ) ( expression ) ) ;
     public final void stepExpression() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:201:7: ( ( IDENT ( INCREMENT | DECREMENT ) | IDENT ( PLUS | MINUS ) ( expression ) ) )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:202:9: ( IDENT ( INCREMENT | DECREMENT ) | IDENT ( PLUS | MINUS ) ( expression ) )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:205:7: ( ( IDENT ( INCREMENT | DECREMENT ) | IDENT ( PLUS | MINUS ) ( expression ) ) )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:206:9: ( IDENT ( INCREMENT | DECREMENT ) | IDENT ( PLUS | MINUS ) ( expression ) )
             {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:202:9: ( IDENT ( INCREMENT | DECREMENT ) | IDENT ( PLUS | MINUS ) ( expression ) )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:206:9: ( IDENT ( INCREMENT | DECREMENT ) | IDENT ( PLUS | MINUS ) ( expression ) )
             int alt34=2;
             int LA34_0 = input.LA(1);
 
@@ -2452,9 +2462,9 @@ public class CsubParser extends Parser {
             }
             switch (alt34) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:202:10: IDENT ( INCREMENT | DECREMENT )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:206:10: IDENT ( INCREMENT | DECREMENT )
                     {
-                    match(input,IDENT,FOLLOW_IDENT_in_stepExpression1580); if (state.failed) return ;
+                    match(input,IDENT,FOLLOW_IDENT_in_stepExpression1597); if (state.failed) return ;
 
                     if ( input.LA(1)==DECREMENT||input.LA(1)==INCREMENT ) {
                         input.consume();
@@ -2471,9 +2481,9 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:203:11: IDENT ( PLUS | MINUS ) ( expression )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:207:11: IDENT ( PLUS | MINUS ) ( expression )
                     {
-                    match(input,IDENT,FOLLOW_IDENT_in_stepExpression1600); if (state.failed) return ;
+                    match(input,IDENT,FOLLOW_IDENT_in_stepExpression1617); if (state.failed) return ;
 
                     if ( input.LA(1)==MINUS||input.LA(1)==PLUS ) {
                         input.consume();
@@ -2487,10 +2497,10 @@ public class CsubParser extends Parser {
                     }
 
 
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:203:32: ( expression )
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:203:33: expression
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:207:32: ( expression )
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:207:33: expression
                     {
-                    pushFollow(FOLLOW_expression_in_stepExpression1611);
+                    pushFollow(FOLLOW_expression_in_stepExpression1628);
                     expression();
 
                     state._fsp--;
@@ -2523,17 +2533,17 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "functionCall"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:207:1: functionCall : IDENT OPENPARENT ( parameter )? CLOSEPARENT ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:211:1: functionCall : IDENT OPENPARENT ( parameter )? CLOSEPARENT ;
     public final void functionCall() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:208:7: ( IDENT OPENPARENT ( parameter )? CLOSEPARENT )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:209:9: IDENT OPENPARENT ( parameter )? CLOSEPARENT
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:212:7: ( IDENT OPENPARENT ( parameter )? CLOSEPARENT )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:213:9: IDENT OPENPARENT ( parameter )? CLOSEPARENT
             {
-            match(input,IDENT,FOLLOW_IDENT_in_functionCall1657); if (state.failed) return ;
+            match(input,IDENT,FOLLOW_IDENT_in_functionCall1674); if (state.failed) return ;
 
-            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_functionCall1659); if (state.failed) return ;
+            match(input,OPENPARENT,FOLLOW_OPENPARENT_in_functionCall1676); if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:209:26: ( parameter )?
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:213:26: ( parameter )?
             int alt35=2;
             int LA35_0 = input.LA(1);
 
@@ -2542,9 +2552,9 @@ public class CsubParser extends Parser {
             }
             switch (alt35) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:209:26: parameter
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:213:26: parameter
                     {
-                    pushFollow(FOLLOW_parameter_in_functionCall1661);
+                    pushFollow(FOLLOW_parameter_in_functionCall1678);
                     parameter();
 
                     state._fsp--;
@@ -2556,7 +2566,7 @@ public class CsubParser extends Parser {
             }
 
 
-            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_functionCall1664); if (state.failed) return ;
+            match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_functionCall1681); if (state.failed) return ;
 
             }
 
@@ -2576,19 +2586,19 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "parameter"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:212:1: parameter : expression ( COMMA expression )* ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:216:1: parameter : expression ( COMMA expression )* ;
     public final void parameter() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:213:7: ( expression ( COMMA expression )* )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:214:9: expression ( COMMA expression )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:217:7: ( expression ( COMMA expression )* )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:218:9: expression ( COMMA expression )*
             {
-            pushFollow(FOLLOW_expression_in_parameter1699);
+            pushFollow(FOLLOW_expression_in_parameter1716);
             expression();
 
             state._fsp--;
             if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:214:20: ( COMMA expression )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:218:20: ( COMMA expression )*
             loop36:
             do {
                 int alt36=2;
@@ -2601,11 +2611,11 @@ public class CsubParser extends Parser {
 
                 switch (alt36) {
             	case 1 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:214:21: COMMA expression
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:218:21: COMMA expression
             	    {
-            	    match(input,COMMA,FOLLOW_COMMA_in_parameter1702); if (state.failed) return ;
+            	    match(input,COMMA,FOLLOW_COMMA_in_parameter1719); if (state.failed) return ;
 
-            	    pushFollow(FOLLOW_expression_in_parameter1704);
+            	    pushFollow(FOLLOW_expression_in_parameter1721);
             	    expression();
 
             	    state._fsp--;
@@ -2638,19 +2648,19 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "expression"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:222:1: expression : logical ( QUESTION logical COLON logical )* ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:226:1: expression : logical ( QUESTION logical COLON logical )* ;
     public final void expression() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:222:12: ( logical ( QUESTION logical COLON logical )* )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:222:14: logical ( QUESTION logical COLON logical )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:226:12: ( logical ( QUESTION logical COLON logical )* )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:226:14: logical ( QUESTION logical COLON logical )*
             {
-            pushFollow(FOLLOW_logical_in_expression1730);
+            pushFollow(FOLLOW_logical_in_expression1747);
             logical();
 
             state._fsp--;
             if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:222:22: ( QUESTION logical COLON logical )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:226:22: ( QUESTION logical COLON logical )*
             loop37:
             do {
                 int alt37=2;
@@ -2663,19 +2673,19 @@ public class CsubParser extends Parser {
 
                 switch (alt37) {
             	case 1 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:222:23: QUESTION logical COLON logical
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:226:23: QUESTION logical COLON logical
             	    {
-            	    match(input,QUESTION,FOLLOW_QUESTION_in_expression1733); if (state.failed) return ;
+            	    match(input,QUESTION,FOLLOW_QUESTION_in_expression1750); if (state.failed) return ;
 
-            	    pushFollow(FOLLOW_logical_in_expression1735);
+            	    pushFollow(FOLLOW_logical_in_expression1752);
             	    logical();
 
             	    state._fsp--;
             	    if (state.failed) return ;
 
-            	    match(input,COLON,FOLLOW_COLON_in_expression1737); if (state.failed) return ;
+            	    match(input,COLON,FOLLOW_COLON_in_expression1754); if (state.failed) return ;
 
-            	    pushFollow(FOLLOW_logical_in_expression1739);
+            	    pushFollow(FOLLOW_logical_in_expression1756);
             	    logical();
 
             	    state._fsp--;
@@ -2708,19 +2718,19 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "logical"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:224:1: logical : relation ( ( CONJUNCTION | DISJUNCTION ) relation )* ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:228:1: logical : relation ( ( CONJUNCTION | DISJUNCTION ) relation )* ;
     public final void logical() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:224:9: ( relation ( ( CONJUNCTION | DISJUNCTION ) relation )* )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:224:11: relation ( ( CONJUNCTION | DISJUNCTION ) relation )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:228:9: ( relation ( ( CONJUNCTION | DISJUNCTION ) relation )* )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:228:11: relation ( ( CONJUNCTION | DISJUNCTION ) relation )*
             {
-            pushFollow(FOLLOW_relation_in_logical1750);
+            pushFollow(FOLLOW_relation_in_logical1767);
             relation();
 
             state._fsp--;
             if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:224:20: ( ( CONJUNCTION | DISJUNCTION ) relation )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:228:20: ( ( CONJUNCTION | DISJUNCTION ) relation )*
             loop38:
             do {
                 int alt38=2;
@@ -2733,7 +2743,7 @@ public class CsubParser extends Parser {
 
                 switch (alt38) {
             	case 1 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:224:22: ( CONJUNCTION | DISJUNCTION ) relation
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:228:22: ( CONJUNCTION | DISJUNCTION ) relation
             	    {
             	    if ( input.LA(1)==CONJUNCTION||input.LA(1)==DISJUNCTION ) {
             	        input.consume();
@@ -2747,7 +2757,7 @@ public class CsubParser extends Parser {
             	    }
 
 
-            	    pushFollow(FOLLOW_relation_in_logical1762);
+            	    pushFollow(FOLLOW_relation_in_logical1779);
             	    relation();
 
             	    state._fsp--;
@@ -2780,19 +2790,19 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "relation"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:226:1: relation : add ( ( SMALLER | LARGER | EQUALITY ) add )* ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:230:1: relation : add ( ( SMALLER | LARGER | EQUALITY ) add )* ;
     public final void relation() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:226:10: ( add ( ( SMALLER | LARGER | EQUALITY ) add )* )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:226:12: add ( ( SMALLER | LARGER | EQUALITY ) add )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:230:10: ( add ( ( SMALLER | LARGER | EQUALITY ) add )* )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:230:12: add ( ( SMALLER | LARGER | EQUALITY ) add )*
             {
-            pushFollow(FOLLOW_add_in_relation1774);
+            pushFollow(FOLLOW_add_in_relation1791);
             add();
 
             state._fsp--;
             if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:226:16: ( ( SMALLER | LARGER | EQUALITY ) add )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:230:16: ( ( SMALLER | LARGER | EQUALITY ) add )*
             loop39:
             do {
                 int alt39=2;
@@ -2805,7 +2815,7 @@ public class CsubParser extends Parser {
 
                 switch (alt39) {
             	case 1 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:226:18: ( SMALLER | LARGER | EQUALITY ) add
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:230:18: ( SMALLER | LARGER | EQUALITY ) add
             	    {
             	    if ( input.LA(1)==EQUALITY||input.LA(1)==LARGER||input.LA(1)==SMALLER ) {
             	        input.consume();
@@ -2819,7 +2829,7 @@ public class CsubParser extends Parser {
             	    }
 
 
-            	    pushFollow(FOLLOW_add_in_relation1790);
+            	    pushFollow(FOLLOW_add_in_relation1807);
             	    add();
 
             	    state._fsp--;
@@ -2852,19 +2862,19 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "add"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:228:1: add : mult ( ( PLUS | MINUS )=> ( PLUS | MINUS ) mult )* ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:232:1: add : mult ( ( PLUS | MINUS )=> ( PLUS | MINUS ) mult )* ;
     public final void add() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:228:5: ( mult ( ( PLUS | MINUS )=> ( PLUS | MINUS ) mult )* )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:228:7: mult ( ( PLUS | MINUS )=> ( PLUS | MINUS ) mult )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:232:5: ( mult ( ( PLUS | MINUS )=> ( PLUS | MINUS ) mult )* )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:232:7: mult ( ( PLUS | MINUS )=> ( PLUS | MINUS ) mult )*
             {
-            pushFollow(FOLLOW_mult_in_add1801);
+            pushFollow(FOLLOW_mult_in_add1818);
             mult();
 
             state._fsp--;
             if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:228:12: ( ( PLUS | MINUS )=> ( PLUS | MINUS ) mult )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:232:12: ( ( PLUS | MINUS )=> ( PLUS | MINUS ) mult )*
             loop40:
             do {
                 int alt40=2;
@@ -2883,7 +2893,7 @@ public class CsubParser extends Parser {
 
                 switch (alt40) {
             	case 1 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:228:13: ( PLUS | MINUS )=> ( PLUS | MINUS ) mult
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:232:13: ( PLUS | MINUS )=> ( PLUS | MINUS ) mult
             	    {
             	    if ( input.LA(1)==MINUS||input.LA(1)==PLUS ) {
             	        input.consume();
@@ -2897,7 +2907,7 @@ public class CsubParser extends Parser {
             	    }
 
 
-            	    pushFollow(FOLLOW_mult_in_add1820);
+            	    pushFollow(FOLLOW_mult_in_add1837);
             	    mult();
 
             	    state._fsp--;
@@ -2930,19 +2940,19 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "mult"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:230:1: mult : unary ( ( ASTERISK | SLASH | PERCENT ) unary )* ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:234:1: mult : unary ( ( ASTERISK | SLASH | PERCENT ) unary )* ;
     public final void mult() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:230:6: ( unary ( ( ASTERISK | SLASH | PERCENT ) unary )* )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:230:8: unary ( ( ASTERISK | SLASH | PERCENT ) unary )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:234:6: ( unary ( ( ASTERISK | SLASH | PERCENT ) unary )* )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:234:8: unary ( ( ASTERISK | SLASH | PERCENT ) unary )*
             {
-            pushFollow(FOLLOW_unary_in_mult1832);
+            pushFollow(FOLLOW_unary_in_mult1849);
             unary();
 
             state._fsp--;
             if (state.failed) return ;
 
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:230:14: ( ( ASTERISK | SLASH | PERCENT ) unary )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:234:14: ( ( ASTERISK | SLASH | PERCENT ) unary )*
             loop41:
             do {
                 int alt41=2;
@@ -2973,7 +2983,7 @@ public class CsubParser extends Parser {
 
                 switch (alt41) {
             	case 1 :
-            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:230:16: ( ASTERISK | SLASH | PERCENT ) unary
+            	    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:234:16: ( ASTERISK | SLASH | PERCENT ) unary
             	    {
             	    if ( input.LA(1)==ASTERISK||input.LA(1)==PERCENT||input.LA(1)==SLASH ) {
             	        input.consume();
@@ -2987,7 +2997,7 @@ public class CsubParser extends Parser {
             	    }
 
 
-            	    pushFollow(FOLLOW_unary_in_mult1848);
+            	    pushFollow(FOLLOW_unary_in_mult1865);
             	    unary();
 
             	    state._fsp--;
@@ -3020,13 +3030,13 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "unary"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:232:1: unary : ( PLUS | MINUS | EXCLAMATION )* primary ;
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:236:1: unary : ( PLUS | MINUS | EXCLAMATION )* primary ;
     public final void unary() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:232:7: ( ( PLUS | MINUS | EXCLAMATION )* primary )
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:232:9: ( PLUS | MINUS | EXCLAMATION )* primary
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:236:7: ( ( PLUS | MINUS | EXCLAMATION )* primary )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:236:9: ( PLUS | MINUS | EXCLAMATION )* primary
             {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:232:9: ( PLUS | MINUS | EXCLAMATION )*
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:236:9: ( PLUS | MINUS | EXCLAMATION )*
             loop42:
             do {
                 int alt42=2;
@@ -3062,7 +3072,7 @@ public class CsubParser extends Parser {
             } while (true);
 
 
-            pushFollow(FOLLOW_primary_in_unary1872);
+            pushFollow(FOLLOW_primary_in_unary1889);
             primary();
 
             state._fsp--;
@@ -3086,10 +3096,10 @@ public class CsubParser extends Parser {
 
 
     // $ANTLR start "primary"
-    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:234:1: primary : ( ( IDENT OPENPARENT )=> functionCall | OPENPARENT expression CLOSEPARENT | INTVALUE | FLOATVALUE | CHARVALUE | STRINGVALUE | TRUE | FALSE | ( AMPERSAND )? IDENT );
+    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:238:1: primary : ( ( IDENT OPENPARENT )=> functionCall | OPENPARENT expression CLOSEPARENT | INTVALUE | FLOATVALUE | CHARVALUE | STRINGVALUE | TRUE | FALSE | ( AMPERSAND )? IDENT );
     public final void primary() throws RecognitionException {
         try {
-            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:235:5: ( ( IDENT OPENPARENT )=> functionCall | OPENPARENT expression CLOSEPARENT | INTVALUE | FLOATVALUE | CHARVALUE | STRINGVALUE | TRUE | FALSE | ( AMPERSAND )? IDENT )
+            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:239:5: ( ( IDENT OPENPARENT )=> functionCall | OPENPARENT expression CLOSEPARENT | INTVALUE | FLOATVALUE | CHARVALUE | STRINGVALUE | TRUE | FALSE | ( AMPERSAND )? IDENT )
             int alt44=9;
             switch ( input.LA(1) ) {
             case IDENT:
@@ -3163,9 +3173,9 @@ public class CsubParser extends Parser {
 
             switch (alt44) {
                 case 1 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:236:9: ( IDENT OPENPARENT )=> functionCall
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:240:9: ( IDENT OPENPARENT )=> functionCall
                     {
-                    pushFollow(FOLLOW_functionCall_in_primary1905);
+                    pushFollow(FOLLOW_functionCall_in_primary1922);
                     functionCall();
 
                     state._fsp--;
@@ -3174,66 +3184,66 @@ public class CsubParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:237:9: OPENPARENT expression CLOSEPARENT
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:241:9: OPENPARENT expression CLOSEPARENT
                     {
-                    match(input,OPENPARENT,FOLLOW_OPENPARENT_in_primary1915); if (state.failed) return ;
+                    match(input,OPENPARENT,FOLLOW_OPENPARENT_in_primary1932); if (state.failed) return ;
 
-                    pushFollow(FOLLOW_expression_in_primary1917);
+                    pushFollow(FOLLOW_expression_in_primary1934);
                     expression();
 
                     state._fsp--;
                     if (state.failed) return ;
 
-                    match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_primary1919); if (state.failed) return ;
+                    match(input,CLOSEPARENT,FOLLOW_CLOSEPARENT_in_primary1936); if (state.failed) return ;
 
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:238:9: INTVALUE
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:242:9: INTVALUE
                     {
-                    match(input,INTVALUE,FOLLOW_INTVALUE_in_primary1929); if (state.failed) return ;
+                    match(input,INTVALUE,FOLLOW_INTVALUE_in_primary1946); if (state.failed) return ;
 
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:239:9: FLOATVALUE
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:243:9: FLOATVALUE
                     {
-                    match(input,FLOATVALUE,FOLLOW_FLOATVALUE_in_primary1940); if (state.failed) return ;
+                    match(input,FLOATVALUE,FOLLOW_FLOATVALUE_in_primary1957); if (state.failed) return ;
 
                     }
                     break;
                 case 5 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:240:9: CHARVALUE
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:244:9: CHARVALUE
                     {
-                    match(input,CHARVALUE,FOLLOW_CHARVALUE_in_primary1951); if (state.failed) return ;
+                    match(input,CHARVALUE,FOLLOW_CHARVALUE_in_primary1968); if (state.failed) return ;
 
                     }
                     break;
                 case 6 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:241:9: STRINGVALUE
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:245:9: STRINGVALUE
                     {
-                    match(input,STRINGVALUE,FOLLOW_STRINGVALUE_in_primary1962); if (state.failed) return ;
+                    match(input,STRINGVALUE,FOLLOW_STRINGVALUE_in_primary1979); if (state.failed) return ;
 
                     }
                     break;
                 case 7 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:242:9: TRUE
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:246:9: TRUE
                     {
-                    match(input,TRUE,FOLLOW_TRUE_in_primary1972); if (state.failed) return ;
+                    match(input,TRUE,FOLLOW_TRUE_in_primary1989); if (state.failed) return ;
 
                     }
                     break;
                 case 8 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:243:9: FALSE
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:247:9: FALSE
                     {
-                    match(input,FALSE,FOLLOW_FALSE_in_primary1983); if (state.failed) return ;
+                    match(input,FALSE,FOLLOW_FALSE_in_primary2000); if (state.failed) return ;
 
                     }
                     break;
                 case 9 :
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:244:9: ( AMPERSAND )? IDENT
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:248:9: ( AMPERSAND )? IDENT
                     {
-                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:244:9: ( AMPERSAND )?
+                    // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:248:9: ( AMPERSAND )?
                     int alt43=2;
                     int LA43_0 = input.LA(1);
 
@@ -3242,9 +3252,9 @@ public class CsubParser extends Parser {
                     }
                     switch (alt43) {
                         case 1 :
-                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:244:9: AMPERSAND
+                            // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:248:9: AMPERSAND
                             {
-                            match(input,AMPERSAND,FOLLOW_AMPERSAND_in_primary1993); if (state.failed) return ;
+                            match(input,AMPERSAND,FOLLOW_AMPERSAND_in_primary2010); if (state.failed) return ;
 
                             }
                             break;
@@ -3252,7 +3262,7 @@ public class CsubParser extends Parser {
                     }
 
 
-                    match(input,IDENT,FOLLOW_IDENT_in_primary1996); if (state.failed) return ;
+                    match(input,IDENT,FOLLOW_IDENT_in_primary2013); if (state.failed) return ;
 
                     }
                     break;
@@ -3273,7 +3283,7 @@ public class CsubParser extends Parser {
 
     // $ANTLR start synpred1_Csub
     public final void synpred1_Csub_fragment() throws RecognitionException {
-        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:132:9: ( INTVALUE | FLOATVALUE | CHARVALUE | TRUE | FALSE | ( AMPERSAND )? IDENT | STRINGVALUE | OPENPARENT )
+        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:9: ( INTVALUE | FLOATVALUE | CHARVALUE | TRUE | FALSE | ( AMPERSAND )? IDENT | STRINGVALUE | OPENPARENT )
         int alt46=8;
         switch ( input.LA(1) ) {
         case INTVALUE:
@@ -3328,44 +3338,44 @@ public class CsubParser extends Parser {
 
         switch (alt46) {
             case 1 :
-                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:132:10: INTVALUE
+                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:10: INTVALUE
                 {
-                match(input,INTVALUE,FOLLOW_INTVALUE_in_synpred1_Csub955); if (state.failed) return ;
+                match(input,INTVALUE,FOLLOW_INTVALUE_in_synpred1_Csub972); if (state.failed) return ;
 
                 }
                 break;
             case 2 :
-                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:132:21: FLOATVALUE
+                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:21: FLOATVALUE
                 {
-                match(input,FLOATVALUE,FOLLOW_FLOATVALUE_in_synpred1_Csub959); if (state.failed) return ;
+                match(input,FLOATVALUE,FOLLOW_FLOATVALUE_in_synpred1_Csub976); if (state.failed) return ;
 
                 }
                 break;
             case 3 :
-                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:132:34: CHARVALUE
+                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:34: CHARVALUE
                 {
-                match(input,CHARVALUE,FOLLOW_CHARVALUE_in_synpred1_Csub963); if (state.failed) return ;
+                match(input,CHARVALUE,FOLLOW_CHARVALUE_in_synpred1_Csub980); if (state.failed) return ;
 
                 }
                 break;
             case 4 :
-                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:132:46: TRUE
+                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:46: TRUE
                 {
-                match(input,TRUE,FOLLOW_TRUE_in_synpred1_Csub967); if (state.failed) return ;
+                match(input,TRUE,FOLLOW_TRUE_in_synpred1_Csub984); if (state.failed) return ;
 
                 }
                 break;
             case 5 :
-                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:132:53: FALSE
+                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:53: FALSE
                 {
-                match(input,FALSE,FOLLOW_FALSE_in_synpred1_Csub971); if (state.failed) return ;
+                match(input,FALSE,FOLLOW_FALSE_in_synpred1_Csub988); if (state.failed) return ;
 
                 }
                 break;
             case 6 :
-                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:132:61: ( AMPERSAND )? IDENT
+                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:61: ( AMPERSAND )? IDENT
                 {
-                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:132:61: ( AMPERSAND )?
+                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:61: ( AMPERSAND )?
                 int alt45=2;
                 int LA45_0 = input.LA(1);
 
@@ -3374,9 +3384,9 @@ public class CsubParser extends Parser {
                 }
                 switch (alt45) {
                     case 1 :
-                        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:132:61: AMPERSAND
+                        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:61: AMPERSAND
                         {
-                        match(input,AMPERSAND,FOLLOW_AMPERSAND_in_synpred1_Csub975); if (state.failed) return ;
+                        match(input,AMPERSAND,FOLLOW_AMPERSAND_in_synpred1_Csub992); if (state.failed) return ;
 
                         }
                         break;
@@ -3384,21 +3394,21 @@ public class CsubParser extends Parser {
                 }
 
 
-                match(input,IDENT,FOLLOW_IDENT_in_synpred1_Csub978); if (state.failed) return ;
+                match(input,IDENT,FOLLOW_IDENT_in_synpred1_Csub995); if (state.failed) return ;
 
                 }
                 break;
             case 7 :
-                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:132:80: STRINGVALUE
+                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:80: STRINGVALUE
                 {
-                match(input,STRINGVALUE,FOLLOW_STRINGVALUE_in_synpred1_Csub982); if (state.failed) return ;
+                match(input,STRINGVALUE,FOLLOW_STRINGVALUE_in_synpred1_Csub999); if (state.failed) return ;
 
                 }
                 break;
             case 8 :
-                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:132:94: OPENPARENT
+                // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:136:94: OPENPARENT
                 {
-                match(input,OPENPARENT,FOLLOW_OPENPARENT_in_synpred1_Csub986); if (state.failed) return ;
+                match(input,OPENPARENT,FOLLOW_OPENPARENT_in_synpred1_Csub1003); if (state.failed) return ;
 
                 }
                 break;
@@ -3409,12 +3419,12 @@ public class CsubParser extends Parser {
 
     // $ANTLR start synpred2_Csub
     public final void synpred2_Csub_fragment() throws RecognitionException {
-        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:164:10: ( ELSE controlBody )
-        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:164:11: ELSE controlBody
+        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:168:10: ( ELSE controlBody )
+        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:168:11: ELSE controlBody
         {
-        match(input,ELSE,FOLLOW_ELSE_in_synpred2_Csub1253); if (state.failed) return ;
+        match(input,ELSE,FOLLOW_ELSE_in_synpred2_Csub1270); if (state.failed) return ;
 
-        pushFollow(FOLLOW_controlBody_in_synpred2_Csub1255);
+        pushFollow(FOLLOW_controlBody_in_synpred2_Csub1272);
         controlBody();
 
         state._fsp--;
@@ -3427,7 +3437,7 @@ public class CsubParser extends Parser {
 
     // $ANTLR start synpred3_Csub
     public final void synpred3_Csub_fragment() throws RecognitionException {
-        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:228:13: ( PLUS | MINUS )
+        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:232:13: ( PLUS | MINUS )
         // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:
         {
         if ( input.LA(1)==MINUS||input.LA(1)==PLUS ) {
@@ -3449,12 +3459,12 @@ public class CsubParser extends Parser {
 
     // $ANTLR start synpred4_Csub
     public final void synpred4_Csub_fragment() throws RecognitionException {
-        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:236:9: ( IDENT OPENPARENT )
-        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:236:10: IDENT OPENPARENT
+        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:240:9: ( IDENT OPENPARENT )
+        // C:\\Users\\Tarek\\workspaceCompilers\\csub\\src\\main\\antlr3\\com\\compilers\\parsers\\Csub.g:240:10: IDENT OPENPARENT
         {
-        match(input,IDENT,FOLLOW_IDENT_in_synpred4_Csub1898); if (state.failed) return ;
+        match(input,IDENT,FOLLOW_IDENT_in_synpred4_Csub1915); if (state.failed) return ;
 
-        match(input,OPENPARENT,FOLLOW_OPENPARENT_in_synpred4_Csub1900); if (state.failed) return ;
+        match(input,OPENPARENT,FOLLOW_OPENPARENT_in_synpred4_Csub1917); if (state.failed) return ;
 
         }
 
@@ -3523,196 +3533,196 @@ public class CsubParser extends Parser {
 
  
 
-    public static final BitSet FOLLOW_includes_in_program64 = new BitSet(new long[]{0x0080001010020100L});
-    public static final BitSet FOLLOW_signature_in_program79 = new BitSet(new long[]{0x0080001010020100L});
-    public static final BitSet FOLLOW_function_in_program93 = new BitSet(new long[]{0x0080001010020100L});
-    public static final BitSet FOLLOW_declaration_in_program108 = new BitSet(new long[]{0x0080001010020100L});
-    public static final BitSet FOLLOW_main_in_program130 = new BitSet(new long[]{0x0080001010020102L});
-    public static final BitSet FOLLOW_declaration_in_program141 = new BitSet(new long[]{0x0080001010020102L});
-    public static final BitSet FOLLOW_function_in_program145 = new BitSet(new long[]{0x0080001010020102L});
-    public static final BitSet FOLLOW_INCLUDESTART_in_includes181 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_INCLUDE_in_includes185 = new BitSet(new long[]{0x0000000400000002L});
-    public static final BitSet FOLLOW_VOID_in_signature235 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_type_in_signature239 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_IDENT_in_signature243 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_OPENPARENT_in_signature245 = new BitSet(new long[]{0x0080001010001100L});
-    public static final BitSet FOLLOW_signatureArguments_in_signature247 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_CLOSEPARENT_in_signature250 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_SEMICOLON_in_signature252 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_function285 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_type_in_function289 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_IDENT_in_function292 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_OPENPARENT_in_function294 = new BitSet(new long[]{0x0080001010001100L});
-    public static final BitSet FOLLOW_arguments_in_function296 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_CLOSEPARENT_in_function299 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_functionBody_in_function301 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CONST_in_declaration331 = new BitSet(new long[]{0x0000001010000100L});
-    public static final BitSet FOLLOW_type_in_declaration334 = new BitSet(new long[]{0x0000000080000020L});
-    public static final BitSet FOLLOW_ASTERISK_in_declaration336 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_IDENT_in_declaration339 = new BitSet(new long[]{0x0004000001004000L});
-    public static final BitSet FOLLOW_EQUAL_in_declaration342 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_declaration344 = new BitSet(new long[]{0x0004000000004000L});
-    public static final BitSet FOLLOW_COMMA_in_declaration358 = new BitSet(new long[]{0x0000000080000020L});
-    public static final BitSet FOLLOW_ASTERISK_in_declaration360 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_IDENT_in_declaration363 = new BitSet(new long[]{0x0004000001004000L});
-    public static final BitSet FOLLOW_EQUAL_in_declaration366 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_declaration368 = new BitSet(new long[]{0x0004000000004000L});
-    public static final BitSet FOLLOW_SEMICOLON_in_declaration383 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclaration_in_declaration404 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_main434 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_type_in_main438 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_MAIN_in_main441 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_OPENPARENT_in_main443 = new BitSet(new long[]{0x0080001010001100L});
-    public static final BitSet FOLLOW_arguments_in_main445 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_CLOSEPARENT_in_main448 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_functionBody_in_main450 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_signatureArguments525 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_signatureArguments536 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_COMMA_in_signatureArguments539 = new BitSet(new long[]{0x0000001010000100L});
-    public static final BitSet FOLLOW_type_in_signatureArguments541 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_type_in_arguments572 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_IDENT_in_arguments574 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_COMMA_in_arguments577 = new BitSet(new long[]{0x0000001010000100L});
-    public static final BitSet FOLLOW_type_in_arguments579 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_IDENT_in_arguments581 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_VOID_in_arguments593 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_OPENCURLY_in_functionBody622 = new BitSet(new long[]{0x0166A231FC460BB0L});
-    public static final BitSet FOLLOW_statement_in_functionBody624 = new BitSet(new long[]{0x0166A231FC460BB0L});
-    public static final BitSet FOLLOW_CLOSECURLY_in_functionBody627 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_arrayDeclaration656 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_IDENT_in_arrayDeclaration658 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_OPENBRACKET_in_arrayDeclaration684 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_INTVALUE_in_arrayDeclaration686 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_CLOSEBRACKET_in_arrayDeclaration688 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_OPENBRACKET_in_arrayDeclaration737 = new BitSet(new long[]{0x0000002000000400L});
-    public static final BitSet FOLLOW_INTVALUE_in_arrayDeclaration739 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_CLOSEBRACKET_in_arrayDeclaration742 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_EQUAL_in_arrayDeclaration784 = new BitSet(new long[]{0x0060B220AC000210L});
-    public static final BitSet FOLLOW_expression_in_arrayDeclaration807 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_OPENCURLY_in_arrayDeclaration851 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_arrayDeclaration853 = new BitSet(new long[]{0x0000000000004800L});
-    public static final BitSet FOLLOW_COMMA_in_arrayDeclaration856 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_arrayDeclaration858 = new BitSet(new long[]{0x0000000000004800L});
-    public static final BitSet FOLLOW_CLOSECURLY_in_arrayDeclaration862 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_SEMICOLON_in_arrayDeclaration916 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMICOLON_in_statement944 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_statement991 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_declaration_in_statement1001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_assignment_in_statement1012 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ifControl_in_statement1022 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_forControl_in_statement1032 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_whileControl_in_statement1042 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_doWhileControl_in_statement1052 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_returnStmt_in_statement1062 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BREAK_in_statement1072 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_SEMICOLON_in_statement1074 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CONTINUE_in_statement1084 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_SEMICOLON_in_statement1086 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ASTERISK_in_assignment1114 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_IDENT_in_assignment1126 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_EQUAL_in_assignment1128 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_assignment1130 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_SEMICOLON_in_assignment1132 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayAssignment_in_assignment1153 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_arrayAssignment1182 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_OPENBRACKET_in_arrayAssignment1184 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_INTVALUE_in_arrayAssignment1186 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_CLOSEBRACKET_in_arrayAssignment1188 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_EQUAL_in_arrayAssignment1190 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_arrayAssignment1192 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_SEMICOLON_in_arrayAssignment1194 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IF_in_ifControl1225 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_OPENPARENT_in_ifControl1227 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_ifControl1229 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_CLOSEPARENT_in_ifControl1231 = new BitSet(new long[]{0x0166B231FC4603B0L});
-    public static final BitSet FOLLOW_controlBody_in_ifControl1241 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_ELSE_in_ifControl1258 = new BitSet(new long[]{0x0166B231FC4603B0L});
-    public static final BitSet FOLLOW_controlBody_in_ifControl1260 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FOR_in_forControl1290 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_OPENPARENT_in_forControl1292 = new BitSet(new long[]{0x0000001090000000L});
-    public static final BitSet FOLLOW_assignmentExpression_in_forControl1294 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_SEMICOLON_in_forControl1296 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_forControl1298 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_SEMICOLON_in_forControl1300 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_stepExpression_in_forControl1302 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_CLOSEPARENT_in_forControl1304 = new BitSet(new long[]{0x0166B231FC4603B0L});
-    public static final BitSet FOLLOW_controlBody_in_forControl1314 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WHILE_in_whileControl1342 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_OPENPARENT_in_whileControl1344 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_whileControl1346 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_CLOSEPARENT_in_whileControl1348 = new BitSet(new long[]{0x0166B231FC4603B0L});
-    public static final BitSet FOLLOW_controlBody_in_whileControl1358 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DO_in_doWhileControl1378 = new BitSet(new long[]{0x0166B231FC4603B0L});
-    public static final BitSet FOLLOW_controlBody_in_doWhileControl1388 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_WHILE_in_doWhileControl1398 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_OPENPARENT_in_doWhileControl1400 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_doWhileControl1402 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_CLOSEPARENT_in_doWhileControl1404 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_SEMICOLON_in_doWhileControl1406 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RETURN_in_returnStmt1441 = new BitSet(new long[]{0x0064A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_returnStmt1444 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_SEMICOLON_in_returnStmt1448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_controlBody1486 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_OPENCURLY_in_controlBody1490 = new BitSet(new long[]{0x0166A231FC460BB0L});
-    public static final BitSet FOLLOW_statement_in_controlBody1492 = new BitSet(new long[]{0x0166A231FC460BB0L});
-    public static final BitSet FOLLOW_CLOSECURLY_in_controlBody1495 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_assignmentExpression1540 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_EQUAL_in_assignmentExpression1542 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_assignmentExpression1544 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_stepExpression1580 = new BitSet(new long[]{0x0000000800080000L});
-    public static final BitSet FOLLOW_set_in_stepExpression1582 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_stepExpression1600 = new BitSet(new long[]{0x0000820000000000L});
-    public static final BitSet FOLLOW_set_in_stepExpression1602 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_stepExpression1611 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_functionCall1657 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_OPENPARENT_in_functionCall1659 = new BitSet(new long[]{0x0060A220AC001210L});
-    public static final BitSet FOLLOW_parameter_in_functionCall1661 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_CLOSEPARENT_in_functionCall1664 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_parameter1699 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_COMMA_in_parameter1702 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_parameter1704 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_logical_in_expression1730 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_QUESTION_in_expression1733 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_logical_in_expression1735 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_COLON_in_expression1737 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_logical_in_expression1739 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_relation_in_logical1750 = new BitSet(new long[]{0x0000000000210002L});
-    public static final BitSet FOLLOW_set_in_logical1754 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_relation_in_logical1762 = new BitSet(new long[]{0x0000000000210002L});
-    public static final BitSet FOLLOW_add_in_relation1774 = new BitSet(new long[]{0x0010004002000002L});
-    public static final BitSet FOLLOW_set_in_relation1778 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_add_in_relation1790 = new BitSet(new long[]{0x0010004002000002L});
-    public static final BitSet FOLLOW_mult_in_add1801 = new BitSet(new long[]{0x0000820000000002L});
-    public static final BitSet FOLLOW_set_in_add1812 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_mult_in_add1820 = new BitSet(new long[]{0x0000820000000002L});
-    public static final BitSet FOLLOW_unary_in_mult1832 = new BitSet(new long[]{0x0008400000000022L});
-    public static final BitSet FOLLOW_set_in_mult1836 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_unary_in_mult1848 = new BitSet(new long[]{0x0008400000000022L});
-    public static final BitSet FOLLOW_primary_in_unary1872 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_functionCall_in_primary1905 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_OPENPARENT_in_primary1915 = new BitSet(new long[]{0x0060A220AC000210L});
-    public static final BitSet FOLLOW_expression_in_primary1917 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_CLOSEPARENT_in_primary1919 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INTVALUE_in_primary1929 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOATVALUE_in_primary1940 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CHARVALUE_in_primary1951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRINGVALUE_in_primary1962 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRUE_in_primary1972 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FALSE_in_primary1983 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_AMPERSAND_in_primary1993 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_IDENT_in_primary1996 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INTVALUE_in_synpred1_Csub955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOATVALUE_in_synpred1_Csub959 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CHARVALUE_in_synpred1_Csub963 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRUE_in_synpred1_Csub967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FALSE_in_synpred1_Csub971 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_AMPERSAND_in_synpred1_Csub975 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_IDENT_in_synpred1_Csub978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRINGVALUE_in_synpred1_Csub982 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_OPENPARENT_in_synpred1_Csub986 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ELSE_in_synpred2_Csub1253 = new BitSet(new long[]{0x0166B231FC4603B0L});
-    public static final BitSet FOLLOW_controlBody_in_synpred2_Csub1255 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_synpred4_Csub1898 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_OPENPARENT_in_synpred4_Csub1900 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_includes_in_program74 = new BitSet(new long[]{0x0080001010020100L});
+    public static final BitSet FOLLOW_signature_in_program91 = new BitSet(new long[]{0x0080001010020100L});
+    public static final BitSet FOLLOW_function_in_program105 = new BitSet(new long[]{0x0080001010020100L});
+    public static final BitSet FOLLOW_declaration_in_program120 = new BitSet(new long[]{0x0080001010020100L});
+    public static final BitSet FOLLOW_main_in_program142 = new BitSet(new long[]{0x0080001010020102L});
+    public static final BitSet FOLLOW_declaration_in_program153 = new BitSet(new long[]{0x0080001010020102L});
+    public static final BitSet FOLLOW_function_in_program157 = new BitSet(new long[]{0x0080001010020102L});
+    public static final BitSet FOLLOW_INCLUDESTART_in_includes199 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_INCLUDE_in_includes203 = new BitSet(new long[]{0x0000000400000002L});
+    public static final BitSet FOLLOW_VOID_in_signature252 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_type_in_signature256 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_IDENT_in_signature260 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_OPENPARENT_in_signature262 = new BitSet(new long[]{0x0080001010001100L});
+    public static final BitSet FOLLOW_signatureArguments_in_signature264 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_CLOSEPARENT_in_signature267 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_SEMICOLON_in_signature269 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_function302 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_type_in_function306 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_IDENT_in_function309 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_OPENPARENT_in_function311 = new BitSet(new long[]{0x0080001010001100L});
+    public static final BitSet FOLLOW_arguments_in_function313 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_CLOSEPARENT_in_function316 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_functionBody_in_function318 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CONST_in_declaration348 = new BitSet(new long[]{0x0000001010000100L});
+    public static final BitSet FOLLOW_type_in_declaration351 = new BitSet(new long[]{0x0000000080000020L});
+    public static final BitSet FOLLOW_ASTERISK_in_declaration353 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_IDENT_in_declaration356 = new BitSet(new long[]{0x0004000001004000L});
+    public static final BitSet FOLLOW_EQUAL_in_declaration359 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_declaration361 = new BitSet(new long[]{0x0004000000004000L});
+    public static final BitSet FOLLOW_COMMA_in_declaration375 = new BitSet(new long[]{0x0000000080000020L});
+    public static final BitSet FOLLOW_ASTERISK_in_declaration377 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_IDENT_in_declaration380 = new BitSet(new long[]{0x0004000001004000L});
+    public static final BitSet FOLLOW_EQUAL_in_declaration383 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_declaration385 = new BitSet(new long[]{0x0004000000004000L});
+    public static final BitSet FOLLOW_SEMICOLON_in_declaration400 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclaration_in_declaration421 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_main451 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_type_in_main455 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_MAIN_in_main458 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_OPENPARENT_in_main460 = new BitSet(new long[]{0x0080001010001100L});
+    public static final BitSet FOLLOW_arguments_in_main462 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_CLOSEPARENT_in_main465 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_functionBody_in_main467 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_signatureArguments542 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_signatureArguments553 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_COMMA_in_signatureArguments556 = new BitSet(new long[]{0x0000001010000100L});
+    public static final BitSet FOLLOW_type_in_signatureArguments558 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_type_in_arguments589 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_IDENT_in_arguments591 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_COMMA_in_arguments594 = new BitSet(new long[]{0x0000001010000100L});
+    public static final BitSet FOLLOW_type_in_arguments596 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_IDENT_in_arguments598 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_VOID_in_arguments610 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_OPENCURLY_in_functionBody639 = new BitSet(new long[]{0x0166A231FC460BB0L});
+    public static final BitSet FOLLOW_statement_in_functionBody641 = new BitSet(new long[]{0x0166A231FC460BB0L});
+    public static final BitSet FOLLOW_CLOSECURLY_in_functionBody644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_arrayDeclaration673 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_IDENT_in_arrayDeclaration675 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_OPENBRACKET_in_arrayDeclaration701 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_INTVALUE_in_arrayDeclaration703 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_CLOSEBRACKET_in_arrayDeclaration705 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_OPENBRACKET_in_arrayDeclaration754 = new BitSet(new long[]{0x0000002000000400L});
+    public static final BitSet FOLLOW_INTVALUE_in_arrayDeclaration756 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_CLOSEBRACKET_in_arrayDeclaration759 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_EQUAL_in_arrayDeclaration801 = new BitSet(new long[]{0x0060B220AC000210L});
+    public static final BitSet FOLLOW_expression_in_arrayDeclaration824 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_OPENCURLY_in_arrayDeclaration868 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_arrayDeclaration870 = new BitSet(new long[]{0x0000000000004800L});
+    public static final BitSet FOLLOW_COMMA_in_arrayDeclaration873 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_arrayDeclaration875 = new BitSet(new long[]{0x0000000000004800L});
+    public static final BitSet FOLLOW_CLOSECURLY_in_arrayDeclaration879 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_SEMICOLON_in_arrayDeclaration933 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMICOLON_in_statement961 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_statement1008 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_declaration_in_statement1018 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_assignment_in_statement1029 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ifControl_in_statement1039 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_forControl_in_statement1049 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_whileControl_in_statement1059 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_doWhileControl_in_statement1069 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_returnStmt_in_statement1079 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BREAK_in_statement1089 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_SEMICOLON_in_statement1091 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CONTINUE_in_statement1101 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_SEMICOLON_in_statement1103 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ASTERISK_in_assignment1131 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_IDENT_in_assignment1143 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_EQUAL_in_assignment1145 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_assignment1147 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_SEMICOLON_in_assignment1149 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayAssignment_in_assignment1170 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_arrayAssignment1199 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_OPENBRACKET_in_arrayAssignment1201 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_INTVALUE_in_arrayAssignment1203 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_CLOSEBRACKET_in_arrayAssignment1205 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_EQUAL_in_arrayAssignment1207 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_arrayAssignment1209 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_SEMICOLON_in_arrayAssignment1211 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IF_in_ifControl1242 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_OPENPARENT_in_ifControl1244 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_ifControl1246 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_CLOSEPARENT_in_ifControl1248 = new BitSet(new long[]{0x0166B231FC4603B0L});
+    public static final BitSet FOLLOW_controlBody_in_ifControl1258 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_ELSE_in_ifControl1275 = new BitSet(new long[]{0x0166B231FC4603B0L});
+    public static final BitSet FOLLOW_controlBody_in_ifControl1277 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FOR_in_forControl1307 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_OPENPARENT_in_forControl1309 = new BitSet(new long[]{0x0000001090000000L});
+    public static final BitSet FOLLOW_assignmentExpression_in_forControl1311 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_SEMICOLON_in_forControl1313 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_forControl1315 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_SEMICOLON_in_forControl1317 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_stepExpression_in_forControl1319 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_CLOSEPARENT_in_forControl1321 = new BitSet(new long[]{0x0166B231FC4603B0L});
+    public static final BitSet FOLLOW_controlBody_in_forControl1331 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WHILE_in_whileControl1359 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_OPENPARENT_in_whileControl1361 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_whileControl1363 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_CLOSEPARENT_in_whileControl1365 = new BitSet(new long[]{0x0166B231FC4603B0L});
+    public static final BitSet FOLLOW_controlBody_in_whileControl1375 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DO_in_doWhileControl1395 = new BitSet(new long[]{0x0166B231FC4603B0L});
+    public static final BitSet FOLLOW_controlBody_in_doWhileControl1405 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_WHILE_in_doWhileControl1415 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_OPENPARENT_in_doWhileControl1417 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_doWhileControl1419 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_CLOSEPARENT_in_doWhileControl1421 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_SEMICOLON_in_doWhileControl1423 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RETURN_in_returnStmt1458 = new BitSet(new long[]{0x0064A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_returnStmt1461 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_SEMICOLON_in_returnStmt1465 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_in_controlBody1503 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_OPENCURLY_in_controlBody1507 = new BitSet(new long[]{0x0166A231FC460BB0L});
+    public static final BitSet FOLLOW_statement_in_controlBody1509 = new BitSet(new long[]{0x0166A231FC460BB0L});
+    public static final BitSet FOLLOW_CLOSECURLY_in_controlBody1512 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_assignmentExpression1557 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_EQUAL_in_assignmentExpression1559 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_assignmentExpression1561 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_stepExpression1597 = new BitSet(new long[]{0x0000000800080000L});
+    public static final BitSet FOLLOW_set_in_stepExpression1599 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_stepExpression1617 = new BitSet(new long[]{0x0000820000000000L});
+    public static final BitSet FOLLOW_set_in_stepExpression1619 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_stepExpression1628 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_functionCall1674 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_OPENPARENT_in_functionCall1676 = new BitSet(new long[]{0x0060A220AC001210L});
+    public static final BitSet FOLLOW_parameter_in_functionCall1678 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_CLOSEPARENT_in_functionCall1681 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_parameter1716 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_COMMA_in_parameter1719 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_parameter1721 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_logical_in_expression1747 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_QUESTION_in_expression1750 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_logical_in_expression1752 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_COLON_in_expression1754 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_logical_in_expression1756 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_relation_in_logical1767 = new BitSet(new long[]{0x0000000000210002L});
+    public static final BitSet FOLLOW_set_in_logical1771 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_relation_in_logical1779 = new BitSet(new long[]{0x0000000000210002L});
+    public static final BitSet FOLLOW_add_in_relation1791 = new BitSet(new long[]{0x0010004002000002L});
+    public static final BitSet FOLLOW_set_in_relation1795 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_add_in_relation1807 = new BitSet(new long[]{0x0010004002000002L});
+    public static final BitSet FOLLOW_mult_in_add1818 = new BitSet(new long[]{0x0000820000000002L});
+    public static final BitSet FOLLOW_set_in_add1829 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_mult_in_add1837 = new BitSet(new long[]{0x0000820000000002L});
+    public static final BitSet FOLLOW_unary_in_mult1849 = new BitSet(new long[]{0x0008400000000022L});
+    public static final BitSet FOLLOW_set_in_mult1853 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_unary_in_mult1865 = new BitSet(new long[]{0x0008400000000022L});
+    public static final BitSet FOLLOW_primary_in_unary1889 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_functionCall_in_primary1922 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_OPENPARENT_in_primary1932 = new BitSet(new long[]{0x0060A220AC000210L});
+    public static final BitSet FOLLOW_expression_in_primary1934 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_CLOSEPARENT_in_primary1936 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INTVALUE_in_primary1946 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOATVALUE_in_primary1957 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CHARVALUE_in_primary1968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRINGVALUE_in_primary1979 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRUE_in_primary1989 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FALSE_in_primary2000 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_AMPERSAND_in_primary2010 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_IDENT_in_primary2013 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INTVALUE_in_synpred1_Csub972 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOATVALUE_in_synpred1_Csub976 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CHARVALUE_in_synpred1_Csub980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRUE_in_synpred1_Csub984 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FALSE_in_synpred1_Csub988 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_AMPERSAND_in_synpred1_Csub992 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_IDENT_in_synpred1_Csub995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRINGVALUE_in_synpred1_Csub999 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_OPENPARENT_in_synpred1_Csub1003 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ELSE_in_synpred2_Csub1270 = new BitSet(new long[]{0x0166B231FC4603B0L});
+    public static final BitSet FOLLOW_controlBody_in_synpred2_Csub1272 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_synpred4_Csub1915 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_OPENPARENT_in_synpred4_Csub1917 = new BitSet(new long[]{0x0000000000000002L});
 
 }
