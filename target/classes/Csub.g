@@ -25,34 +25,43 @@ options {
  * PARSER RULES
  *------------------------------------------------------------------*/
 
+/*
+includes rule creates a sub tree with temporary root ASTNode and adds 
+all its children (one token for each include) then it returns the root 
+of this sub tree upwards (to program rule in this case). In the program 
+rule you can access each of the sub rule's sub trees by saying 
+$rule.node (e.g. $includes.node) so in this way the tree is built bottom up.
+*/
 program
     :
-        {ProgramNode programNode = new ProgramNode("programNode");
-        ast.set_root(programNode);}
-        includes[ast.get_root()] {System.out.println(ast.get_root().get_includes().get(0).get_Value());}
+//        {ProgramNode programNode = new ProgramNode("programNode");
+//        ast.set_root(programNode);}
+        includes
         (   signature
         |   function 
         |   declaration // Global variable declaration
         )*
         main
         (declaration | function)*
+        {System.out.println(((TokenNode)($includes.node.get_children().get(1))).get_Value());} // NO GLOBAL VAR NEEDED, BOTTOM UP
     ;
 
 /*------------------------------------------------------------------
  * DEPTH 1
  *------------------------------------------------------------------*/
      
-includes [ASTNode parent] returns [int a]
+includes returns [ASTNode node]
     :
         (INCLUDESTART result+=INCLUDE)*
         {
+            ASTNode parent = new ASTNode();
             for (Object token : $result)
             {
-                TokenNode node = new TokenNode("INCLUDE", ((Token)token).getText());
-                node.set_parent(parent);
-                ast.get_root().get_includes().add(node);
-                parent.get_children().add(node);
+                TokenNode child = new TokenNode("INCLUDE", ((Token)token).getText());
+                child.set_parent(parent);
+                parent.addChild(child);
             }
+            $node = parent;
         }
     ;
      

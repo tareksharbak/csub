@@ -2,7 +2,7 @@ package com.compilers.AST;
 
 import java.util.ArrayList;
 
-public abstract class ASTNode 
+public class ASTNode 
 {
 	private String _name;
 	private ASTNode _parent;
@@ -28,6 +28,10 @@ public abstract class ASTNode
 
 	public void set_children(ArrayList<ASTNode> _children) {
 		this._children = _children;
+	}
+	
+	public void addChild(ASTNode child) {
+		this._children.add(child);
 	}
 
 	public ASTNode()
