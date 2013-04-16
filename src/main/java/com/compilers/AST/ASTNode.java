@@ -4,40 +4,40 @@ import java.util.ArrayList;
 
 public class ASTNode 
 {
-	private String _name;
-	private ASTNode _parent;
-	private ArrayList<ASTNode> _children;
+	private String name;
+	private ASTNode parent;
+	private ArrayList<ASTNode> children;
 	
-	public String get_Name() {
-		return _name;
+	public String getName() {
+		return name;
 	}
-	public void set_Name(String _Name) {
-		this._name = _Name;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public ASTNode get_parent() {
-		return _parent;
-	}
-
-	public void set_parent(ASTNode _parent) {
-		this._parent = _parent;
+	public ASTNode getParent() {
+		return parent;
 	}
 
-	public ArrayList<ASTNode> get_children() {
-		return _children;
+	public void setParent(ASTNode parent) {
+		this.parent = parent;
 	}
 
-	public void set_children(ArrayList<ASTNode> _children) {
-		this._children = _children;
+	public ArrayList<ASTNode> getChildren() {
+		return children;
+	}
+
+	public void setChildren(ArrayList<ASTNode> children) {
+		this.children = children;
 	}
 	
 	public void addChild(ASTNode child) {
-		this._children.add(child);
+		this.children.add(child);
 	}
 
 	public ASTNode()
 	{
-		this._name = "";
-		this._parent = null;
-		this._children = new ArrayList<ASTNode>();
+		this.name = "";
+		this.parent = null;
+		this.children = new ArrayList<ASTNode>();
 	}
 }

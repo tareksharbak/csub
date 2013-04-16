@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class SignatureArgumentsNode extends ASTNode 
 {
-	public ArrayList<TypeNode> _TYPES = new ArrayList<TypeNode>();
-	public TokenNode _VOID;
+	public ArrayList<TypeNode> TYPES = new ArrayList<TypeNode>();
+	public TokenNode VOID;
 	
 	public SignatureArgumentsNode(){}
 }

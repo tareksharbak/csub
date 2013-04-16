@@ -2,7 +2,7 @@ package com.compilers.AST;
 
 public class TypeNode extends ASTNode 
 {
-	public TokenNode _TYPE;
+	public TokenNode TYPE;
 	
 	public TypeNode(){}
 }

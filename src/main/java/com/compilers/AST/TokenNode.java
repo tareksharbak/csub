@@ -2,26 +2,20 @@ package com.compilers.AST;
 
 public class TokenNode extends ASTNode
 {
-	private String _name;
-	private String _value;
-	private ASTNode _parent;
+	private String name;
+	private String value;
+	private Position position;
 	
-	public ASTNode get_parent() {
-		return _parent;
+	public String getName() {
+		return name;
 	}
-	public void set_parent(ASTNode _parent) {
-		this._parent = _parent;
-	}	
-	public String get_Name() {
-		return _name;
-	}
-	public String get_Value() {
-		return _value;
+	public String getValue() {
+		return value;
 	}
 	
-	public TokenNode(String _Name, String _Value)
+	public TokenNode(String name, String value)
 	{
-		this._name = _Name;
-		this._value = _Value;
+		this.name = name;
+		this.value = value;
 	}
 }
