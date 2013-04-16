@@ -11,7 +11,7 @@ public class Test {
 //		// Create an input character stream from standard in
 //		ANTLRInputStream input = new ANTLRInputStream(System.in);
 		// Create an input character stream from a file
-		ANTLRFileStream input = new ANTLRFileStream("src/test/resources/helloWorld");
+		ANTLRFileStream input = new ANTLRFileStream("src/test/resources/funcs");
 		// Create an MyLexer that feeds from that stream
 		CsubLexer lexer = new CsubLexer(input);
 		// Create a stream of tokens fed by the lexer

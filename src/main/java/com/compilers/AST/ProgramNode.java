@@ -18,12 +18,19 @@ public class ProgramNode extends ASTNode
 		super.set_Name(Name);
 	}
 	
-	public ProgramNode(ArrayList<FunctionNode> _functions, ArrayList<SignatureNode> _signatures, ArrayList<DeclarationNode> _declarations, MainNode _main)
+	public ProgramNode(ArrayList<TokenNode> _includes, ArrayList<FunctionNode> _functions, ArrayList<SignatureNode> _signatures, ArrayList<DeclarationNode> _declarations, MainNode _main)
 	{
+		this._includes = _includes;
 		this._functions = _functions;
 		this._declarations = _declarations;
 		this._signatures = _signatures;
 		this._main = _main;
+	}
+
+	// Test
+	public ProgramNode(ArrayList<TokenNode> _includes) {
+		super();
+		this._includes = _includes;
 	}
 
 }

@@ -25,13 +25,6 @@ options {
  * PARSER RULES
  *------------------------------------------------------------------*/
 
-/*
-includes rule creates a sub tree with temporary root ASTNode and adds 
-all its children (one token for each include) then it returns the root 
-of this sub tree upwards (to program rule in this case). In the program 
-rule you can access each of the sub rule's sub trees by saying 
-$rule.node (e.g. $includes.node) so in this way the tree is built bottom up.
-*/
 program
     :
 //        {ProgramNode programNode = new ProgramNode("programNode");
@@ -43,31 +36,36 @@ program
         )*
         main
         (declaration | function)*
-        {System.out.println(((TokenNode)($includes.node.get_children().get(1))).get_Value());} // NO GLOBAL VAR NEEDED, BOTTOM UP
+        {
+        ast.set_root(new ProgramNode($includes.result));
+        }
+//        {System.out.println(((TokenNode)($includes.node.get_children().get(1))).get_Value());} // NO GLOBAL VAR NEEDED, BOTTOM UP
     ;
 
 /*------------------------------------------------------------------
  * DEPTH 1
  *------------------------------------------------------------------*/
      
-includes returns [ASTNode node]
+includes returns [ArrayList<TokenNode> result]
     :
-        (INCLUDESTART result+=INCLUDE)*
+        (INCLUDESTART incs+=INCLUDE)*
         {
-            ASTNode parent = new ASTNode();
-            for (Object token : $result)
+            $result = new ArrayList<TokenNode>();
+            for (Object token : $incs)
             {
-                TokenNode child = new TokenNode("INCLUDE", ((Token)token).getText());
-                child.set_parent(parent);
-                parent.addChild(child);
+                TokenNode tokenNode = new TokenNode("INCLUDE", ((Token)token).getText());
+                $result.add(tokenNode);
+//                child.set_parent(parent);
+//                parent.addChild(child);
             }
-            $node = parent;
         }
     ;
      
 signature   
     :   
         (VOID | type ) IDENT OPENPARENT signatureArguments? CLOSEPARENT SEMICOLON
+        {System.out.println($VOID.text);
+        System.out.println($type.text);}
     ;       
 
 function
@@ -93,7 +91,7 @@ main
  * DEPTH 2
  *------------------------------------------------------------------*/
 
-type 
+type
     : 
         INT
     |   FLOAT
