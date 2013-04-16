@@ -6,6 +6,12 @@ public class TokenNode extends ASTNode
 	private String value;
 	private Position position;
 	
+	public Position getPosition() {
+		return position;
+	}
+	public void setPosition(Position position) {
+		this.position = position;
+	}
 	public String getName() {
 		return name;
 	}
@@ -13,9 +19,10 @@ public class TokenNode extends ASTNode
 		return value;
 	}
 	
-	public TokenNode(String name, String value)
+	public TokenNode(String name, String value, Position position)
 	{
 		this.name = name;
 		this.value = value;
+		this.position = position;
 	}
 }
