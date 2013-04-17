@@ -53,7 +53,7 @@ includes returns [ArrayList<TokenNode> result]
             $result = new ArrayList<TokenNode>();
             for (Object token : $incs)
             {
-                TokenNode tokenNode = new TokenNode("INCLUDE", ((Token)token).getText());
+                TokenNode tokenNode = new TokenNode("INCLUDE", ((Token)token).getText(), new Position(1,1));
                 $result.add(tokenNode);
 //                child.set_parent(parent);
 //                parent.addChild(child);
